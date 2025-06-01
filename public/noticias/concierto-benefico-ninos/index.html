@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My New Hugo Site</title>
+    <link rel="icon" href="/image/logo_01.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c;  
+            color: #e2e8f0;  
+        }
+         
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+            border-radius: 10px;
+        }
+        .gradient-text-orange {
+            background-image: linear-gradient(to right, #f97316, #fb923c);  
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-yellow {
+            background-image: linear-gradient(to right, #eab308, #fcd34d);  
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-green {
+            background-image: linear-gradient(to right, #10b981, #34d399);  
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .news-card-image {
+            width: 100%;
+            height: 200px;  
+            object-fit: cover;  
+        }
+        .featured-news-image {
+            width: 100%;
+            height: 400px;  
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="/image/logo_01.png" alt="Logo Suena La Web" class="w-10 h-10 rounded-full object-cover">
+            <span class="ml-3 text-3xl font-bold gradient-text-yellow">SUENA LA WEB</span>
+        </div>
+        <nav>
+            <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-semibold">
+                <li><a href="/" class="hover:text-orange-400 transition-colors duration-300">Inicio</a></li>
+                <li><a href="/noticias/" class="hover:text-orange-400 transition-colors duration-300">Noticias</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Programación</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <section class="bg-gray-800 py-6 px-6 md:px-12 shadow-inner">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+        <h2 class="text-2xl font-bold mb-4 md:mb-0 gradient-text-green">¡Sintoniza Suena La Web en vivo!</h2>
+        <div class="w-full md:w-1/2 lg:w-1/3">
+            <iframe src="https://zeno.fm/player/suenalaweb-net" width="100%" height="250" frameborder="0" scrolling="no" class="rounded-lg shadow-md"></iframe>
+            <a href="https://zeno.fm/" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px; color: #e2e8f0; text-align: center; margin-top: 5px;">A Zeno.FM Station</a>
+        </div>
+    </div>
+</section>
+
+    
+<main class="container mx-auto py-8 px-6 md:px-12">
+    <article class="bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+        <header class="mb-6">
+            <h1 class="text-4xl font-extrabold mb-3 gradient-text-yellow">Concierto Benéfico &#39;Voces por los Niños&#39; Recauda Fondos Récord</h1>
+            <p class="text-gray-400 text-sm mb-4">
+                Publicado el 30 de enero de 2025
+                
+                | Categoría:
+                
+                    <a href="/categorias/musica/" class="hover:underline">Musica</a>
+                
+                    , <a href="/categorias/eventos/" class="hover:underline">Eventos</a>
+                
+                
+            </p>
+            
+                <img src="/image/Concierto_Benefico.jpg" alt="Multitud animada en un concierto benéfico" class="w-full h-80 object-cover rounded-lg mb-6 shadow-md">
+            
+        </header>
+
+        <div class="prose prose-invert max-w-none text-gray-300 leading-relaxed">
+            <h2 id="concierto-benéfico-voces-por-los-niños-recauda-fondos-récord">Concierto Benéfico &lsquo;Voces por los Niños&rsquo; Recauda Fondos Récord</h2>
+<p><strong>Centro Cultural, 30 de mayo de 2025</strong> - La gala benéfica &lsquo;Voces por los Niños&rsquo;, celebrada anoche en el Centro Cultural de la ciudad, ha culminado con un éxito rotundo, superando todas las expectativas de recaudación. El evento, que contó con la participación de reconocidos artistas locales e internacionales, logró reunir una cifra sin precedentes destinada a programas educativos para niños en situación de vulnerabilidad.</p>
+<p>Desde el inicio, el ambiente estuvo cargado de emoción y solidaridad. Las actuaciones musicales, que abarcaron desde el pop y rock hasta géneros folclóricos, mantuvieron al público cautivado. Entre los momentos más emotivos de la noche destacó la interpretación conjunta de todos los artistas de un himno a la esperanza, coreado por miles de asistentes.</p>
+<h3 id="un-futuro-más-brillante-gracias-a-la-solidaridad">Un Futuro Más Brillante Gracias a la Solidaridad</h3>
+<p>Los fondos recaudados se destinarán íntegramente a la construcción de nuevas aulas, la adquisición de material didáctico y la implementación de talleres extracurriculares que beneficiarán a miles de niños en las comunidades más desfavorecidas. Los organizadores expresaron su profunda gratitud a todos los que contribuyeron.</p>
+<p>&ldquo;Estamos abrumados por la generosidad de nuestra comunidad y el talento de los artistas que se sumaron a esta causa. Cada euro y cada aplauso se traduce en una oportunidad para un niño&rdquo;, afirmó María Elena Rojas, presidenta de la fundación organizadora.</p>
+<p>Este concierto no solo ha sido un hito en la recaudación de fondos, sino también un poderoso recordatorio del impacto positivo que la unión y la solidaridad pueden tener en la sociedad. Se espera que este éxito impulse futuras iniciativas benéficas en la región.</p>
+
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-700 text-center">
+            <a href="/" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
+                ← Volver al Inicio
+            </a>
+        </div>
+    </article>
+</main>
+
+
+    <footer class="bg-gray-900 py-6 px-6 md:px-12 mt-8">
+    <div class="container mx-auto text-center text-gray-500 text-sm">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="https://twitter.com/TuUsuarioDeTwitter" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/X.png" alt="X (Twitter)" class="w-8 h-8">
+            </a>
+            <a href="https://instagram.com/TuUsuarioDeInstagram" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/instagram.png" alt="Instagram" class="w-8 h-8">
+            </a>
+            <a href="https://youtube.com/TuCanalDeYouTube" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/youtube.png" alt="YouTube" class="w-8 h-8">
+            </a>
+            <a href="https://tiktok.com/@TuUsuarioDeTikTok" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/tiktok.png" alt="TikTok" class="w-8 h-8">
+            </a>
+        </div>
+        <p>© 2025 Suena La Web. Todos los derechos reservados.</p>
+        <p class="mt-2">Diseñado con <span class="text-red-500">♥</span> para la mejor experiencia nocturna.</p>
+    </div>
+</footer>
+
+</body>
+</html>

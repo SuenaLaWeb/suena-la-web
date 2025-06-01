@@ -1,0 +1,45 @@
+{{ define "main" }}
+<main class="container mx-auto py-8 px-6 md:px-12">
+    <h1 class="text-4xl font-extrabold mb-8 text-center gradient-text-orange">
+        {{ if .IsHome }}
+            Últimas Noticias
+        {{ else if eq .Kind "taxonomy" }}
+            Noticias en: {{ .Title }}
+        {{ else }}
+            {{ .Title }}
+        {{ end }}
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ range .Paginator.Pages }}
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+            {{ with .Params.image }}
+            <img src="{{ . }}" alt="{{ if $.Params.alt_image }}{{ $.Params.alt_image }}{{ else }}{{ $.Title }}{{ end }}" class="news-card-image">
+            {{ end }}
+            <div class="p-6 flex-grow flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold mb-3 gradient-text-yellow">{{ .Title }}</h2>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Publicado el {{ .Date.Format "02 de enero de 2006" }}
+                        {{ with .Params.categorias }}
+                        | Categoría:
+                        {{ range $index, $categoria := . }}
+                            {{ if $index }}, {{ end }}<a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>
+                        {{ end }}
+                        {{ end }}
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        {{ .Params.description | default (.Summary | plainify | truncate 200) }}
+                    </p>
+                </div>
+                <a href="{{ .Permalink }}" class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
+                    Leer Más
+                </a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+</main>
+{{ end }}
