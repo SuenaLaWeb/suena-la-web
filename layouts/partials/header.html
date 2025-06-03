@@ -7,7 +7,16 @@
         <nav>
             <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-semibold">
                 <li><a href="/" class="hover:text-orange-400 transition-colors duration-300">Inicio</a></li>
-                <li><a href="/noticias/" class="hover:text-orange-400 transition-colors duration-300">Noticias</a></li>
+                <li class="relative group">
+    <a href="/noticias/" class="hover:text-orange-400 transition-colors duration-300 block">Noticias</a>
+    <ul class="absolute hidden group-hover:block bg-gray-800 text-white shadow-lg rounded-md **top-full pt-2** w-48 z-10">
+        <li><a href="/noticias/musica/" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Música</a></li>
+        <li><a href="/noticias/tv/" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">TV</a></li>
+        <li><a href="/noticias/cine/" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Cine</a></li>
+        <li><a href="/noticias/bienestar-salud/" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Bienestar y salud</a></li>
+        <li><a href="/noticias/tecnologia/" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Tecnología</a></li>
+    </ul>
+</li>
                 <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Programación</a></li>
                 <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Contacto</a></li>
             </ul>

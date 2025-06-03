@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>Suena La Web - Noticias y Musica</title>
+    <link>https://example.org/</link>
+    <description>Recent content on Suena La Web - Noticias y Musica</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 May 2025 18:03:06 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>El Festival de Música Electrónica &#39;Sonido del Futuro&#39; Anuncia Su Line-up Estelar</title>
-      <link>http://localhost:1313/noticias/mi-primera-noticia/</link>
+      <link>https://example.org/noticias/mi-primera-noticia/</link>
       <pubDate>Sat, 31 May 2025 18:03:06 -0400</pubDate>
-      <guid>http://localhost:1313/noticias/mi-primera-noticia/</guid>
+      <guid>https://example.org/noticias/mi-primera-noticia/</guid>
       <description>&lt;h2 id=&#34;el-festival-de-música-electrónica-sonido-del-futuro-anuncia-su-line-up-estelar&#34;&gt;El Festival de Música Electrónica &amp;lsquo;Sonido del Futuro&amp;rsquo; Anuncia Su Line-up Estelar&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Ciudad Techno, 31 de mayo de 2025&lt;/strong&gt; - El muy esperado Festival de Música Electrónica &amp;lsquo;Sonido del Futuro&amp;rsquo; ha desvelado hoy su impresionante line-up, prometiendo una experiencia inolvidable para los amantes de la música electrónica de todo el mundo. Entre los nombres más destacados se encuentran la legendaria DJ Solara, el innovador dúo ByteBeat, y el enigmático productor Echoes, quienes encabezarán el evento que se celebrará del 15 al 17 de agosto en los vastos Campos Verdes a las afueras de la ciudad.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Concierto Benéfico &#39;Voces por los Niños&#39; Recauda Fondos Récord</title>
-      <link>http://localhost:1313/noticias/concierto-benefico-ninos/</link>
+      <link>https://example.org/noticias/concierto-benefico-ninos/</link>
       <pubDate>Fri, 30 May 2025 10:00:00 -0400</pubDate>
-      <guid>http://localhost:1313/noticias/concierto-benefico-ninos/</guid>
+      <guid>https://example.org/noticias/concierto-benefico-ninos/</guid>
       <description>&lt;h2 id=&#34;concierto-benéfico-voces-por-los-niños-recauda-fondos-récord&#34;&gt;Concierto Benéfico &amp;lsquo;Voces por los Niños&amp;rsquo; Recauda Fondos Récord&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Centro Cultural, 30 de mayo de 2025&lt;/strong&gt; - La gala benéfica &amp;lsquo;Voces por los Niños&amp;rsquo;, celebrada anoche en el Centro Cultural de la ciudad, ha culminado con un éxito rotundo, superando todas las expectativas de recaudación. El evento, que contó con la participación de reconocidos artistas locales e internacionales, logró reunir una cifra sin precedentes destinada a programas educativos para niños en situación de vulnerabilidad.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Las 5 Tendencias Tecnológicas que Marcarán el 2025</title>
-      <link>http://localhost:1313/noticias/tendencias-tecnologicas-2025/</link>
+      <link>https://example.org/noticias/tendencias-tecnologicas-2025/</link>
       <pubDate>Thu, 29 May 2025 18:03:06 -0400</pubDate>
-      <guid>http://localhost:1313/noticias/tendencias-tecnologicas-2025/</guid>
+      <guid>https://example.org/noticias/tendencias-tecnologicas-2025/</guid>
       <description>&lt;h2 id=&#34;las-5-tendencias-tecnológicas-que-marcarán-el-2025&#34;&gt;Las 5 Tendencias Tecnológicas que Marcarán el 2025&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Mundo Digital, 29 de mayo de 2025&lt;/strong&gt; - El panorama tecnológico avanza a pasos agigantados, y el año 2025 se perfila como un punto de inflexión con la consolidación de varias tendencias disruptivas. Expertos de la industria han identificado cinco áreas clave que redefinirán la forma en que interactuamos con la tecnología y el mundo que nos rodea.&lt;/p&gt;&#xA;&lt;p&gt;La &lt;strong&gt;Inteligencia Artificial Generativa&lt;/strong&gt; continúa a la cabeza, con modelos cada vez más sofisticados capaces de crear contenido indistinguible del humano. Esto promete revolucionar sectores como el diseño, la publicidad y el desarrollo de software. Paralelamente, la &lt;strong&gt;Computación Cuántica&lt;/strong&gt; sigue dando pasos agigantados, abriendo la puerta a la resolución de problemas complejos que hoy son impensables para los superordenadores tradicionales.&lt;/p&gt;</description>
     </item>
   </channel>
