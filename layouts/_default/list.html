@@ -1,45 +1,59 @@
 {{ define "main" }}
-<main class="container mx-auto py-8 px-6 md:px-12">
-    <h1 class="text-4xl font-extrabold mb-8 text-center gradient-text-orange">
-        {{ if .IsHome }}
-            Últimas Noticias
-        {{ else if eq .Kind "taxonomy" }}
-            Noticias en: {{ .Title }}
-        {{ else }}
+    <div class="container mx-auto py-8">
+        <h1 class="text-4xl font-bold text-white mb-6 text-center">
             {{ .Title }}
-        {{ end }}
-    </h1>
+        </h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {{ range .Paginator.Pages }}
-        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-            {{ with .Params.image }}
-            <img src="{{ . }}" alt="{{ if $.Params.alt_image }}{{ $.Params.alt_image }}{{ else }}{{ $.Title }}{{ end }}" class="news-card-image">
-            {{ end }}
-            <div class="p-6 flex-grow flex flex-col justify-between">
-                <div>
-                    <h2 class="text-2xl font-bold mb-3 gradient-text-yellow">{{ .Title }}</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Publicado el {{ .Date.Format "02 de enero de 2006" }}
-                        {{ with .Params.categorias }}
-                        | Categoría:
-                        {{ range $index, $categoria := . }}
-                            {{ if $index }}, {{ end }}<a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>
-                        {{ end }}
-                        {{ end }}
-                    </p>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                        {{ .Params.description | default (.Summary | plainify | truncate 200) }}
-                    </p>
-                </div>
-                <a href="{{ .Permalink }}" class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
-                    Leer Más
-                </a>
+        {{ $pagesToShow := slice }} {{/* Inicializamos una variable para almacenar las páginas a mostrar */}}
+
+        {{ if eq .Kind "page" }}
+            {{/* Si la página actual es de tipo "page" (como musica.md, tv.md, etc.) */}}
+            {{/* Intentamos filtrar las páginas regulares del sitio por su categoría */}}
+            {{ $currentFileName := .File.BaseFileName }} {{/* Obtenemos "musica", "tv", etc. */}}
+            {{ $pagesToShow = where site.RegularPages "Params.categorias" "intersect" (slice $currentFileName) }}
+        {{ else if eq .Kind "section" }}
+            {{/* Si es una página de sección (ej. la página principal de /noticias/) */}}
+            {{ $pagesToShow = .Paginator.Pages }}
+        {{ else if eq .Kind "term" }}
+            {{/* Si es una página de término de taxonomía real (ej. /categorias/musica/) */}}
+            {{ $pagesToShow = .Paginator.Pages }}
+        {{ end }}
+
+        {{/* Ahora iteramos sobre las páginas encontradas */}}
+        {{ if $pagesToShow }}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ range $pagesToShow.ByDate.Reverse }} {{/* Ordenar por fecha, los más nuevos primero */}}
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h2 class="text-2xl font-semibold text-orange-400 mb-2">
+                            <a href="{{ .Permalink }}"
+                               hx-get="{{ .Permalink }}"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="hover:underline">{{ .Title }}</a>
+                        </h2>
+                        <p class="text-gray-400 text-sm mb-4">
+                            {{ .Date.Format "January 2, 2006" }}
+                            {{ if .Params.categorias }}
+                                <span class="ml-2">Categorías:
+                                    {{ range .Params.categorias }}
+                                        <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">{{ . }}</span>
+                                    {{ end }}
+                                </span>
+                            {{ end }}
+                        </p>
+                        <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
+                        <a href="{{ .Permalink }}"
+                           hx-get="{{ .Permalink }}"
+                           hx-target="#main-content"
+                           hx-swap="innerHTML"
+                           hx-push-url="true"
+                           hx-select="#main-content" class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
+                    </div>
+                {{ end }}
             </div>
-        </div>
+        {{ else }}
+            <p class="text-center text-gray-400 text-xl">No hay noticias en esta categoría de momento.</p>
         {{ end }}
     </div>
-
-    {{ partial "pagination.html" . }}
-</main>
 {{ end }}

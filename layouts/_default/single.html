@@ -8,7 +8,13 @@
                 {{ with .Params.categorias }}
                 | Categoría:
                 {{ range $index, $categoria := . }}
-                    {{ if $index }}, {{ end }}<a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>
+                    {{ if $index }}, {{ end }}
+                    <a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/"
+                       hx-get="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/"
+                       hx-target="#main-content"
+                       hx-swap="innerHTML"
+                       hx-push-url="true"
+                       hx-select="#main-content" class="hover:underline">{{ . }}</a>
                 {{ end }}
                 {{ end }}
             </p>
@@ -22,7 +28,12 @@
         </div>
 
         <div class="mt-8 pt-6 border-t border-gray-700 text-center">
-            <a href="/" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
+            <a href="/"
+               hx-get="/"
+               hx-target="#main-content"
+               hx-swap="innerHTML"
+               hx-push-url="true"
+               hx-select="#main-content" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
                 ← Volver al Inicio
             </a>
         </div>

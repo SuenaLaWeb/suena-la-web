@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categorias on Suena La Web - Noticias y Musica</title>
+    <link>http://localhost:1313/categorias/</link>
+    <description>Recent content in Categorias on Suena La Web - Noticias y Musica</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 May 2025 18:03:06 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/categorias/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eventos</title>
+      <link>http://localhost:1313/categorias/eventos/</link>
+      <pubDate>Sat, 31 May 2025 18:03:06 -0400</pubDate>
+      <guid>http://localhost:1313/categorias/eventos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Musica</title>
+      <link>http://localhost:1313/categorias/musica/</link>
+      <pubDate>Sat, 31 May 2025 18:03:06 -0400</pubDate>
+      <guid>http://localhost:1313/categorias/musica/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Innovacion</title>
+      <link>http://localhost:1313/categorias/innovacion/</link>
+      <pubDate>Thu, 29 May 2025 18:03:06 -0400</pubDate>
+      <guid>http://localhost:1313/categorias/innovacion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tecnologia</title>
+      <link>http://localhost:1313/categorias/tecnologia/</link>
+      <pubDate>Thu, 29 May 2025 18:03:06 -0400</pubDate>
+      <guid>http://localhost:1313/categorias/tecnologia/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
