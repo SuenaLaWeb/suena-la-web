@@ -89,24 +89,39 @@
 </head>
 <body class="antialiased">
 
-    {{- partial "header.html" . -}}
+    {{/*
+        Verifica si la solicitud es de HTMX.
+        .Request.Headers.Get es sensible al contexto.
+        Lo evaluamos una vez al inicio del template base.
+    */}}
+    {{ $isHtmxRequest := false }}
+    {{ with .Request }}
+        {{ if .Headers.Get "HX-Request" }}
+            {{ $isHtmxRequest = true }}
+        {{ end }}
+    {{ end }}
+
+    {{ if not $isHtmxRequest }}
+        {{- partial "header.html" . -}}
+    {{ end }}
 
     <div id="main-content">
         {{ block "main" . }}{{ end }}
     </div>
 
-    {{- partial "footer.html" . -}}
-
-    <div class="player-fixed-container">
-        <iframe src="https://zeno.fm/player/suenalaweb-net"
-                width="380" height="169"
-                frameborder="0" scrolling="no"
-                allowtransparency="true"
-                allow="encrypted-media"
-                title="Reproductor de Audio Suena La Web">
-        </iframe>
-        <a href="https://zeno.fm/" target="_blank"></a>
-    </div>
+    {{ if not $isHtmxRequest }}
+        {{- partial "footer.html" . -}}
+        <div class="player-fixed-container">
+            <iframe src="https://zeno.fm/player/suenalaweb-net"
+                    width="380" height="169"
+                    frameborder="0" scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                    title="Reproductor de Audio Suena La Web">
+            </iframe>
+            <a href="https://zeno.fm/" target="_blank"></a>
+        </div>
+    {{ end }}
 
 </body>
 </html>

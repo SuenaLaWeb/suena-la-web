@@ -48,7 +48,7 @@
                            hx-target="#main-content"
                            hx-swap="innerHTML"
                            hx-push-url="true"
-                           hx-select="#main-content" class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
+                           href="{{ .Permalink }}" hx-boost="true" class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
                     </div>
                 {{ end }}
             </div>
