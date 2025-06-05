@@ -9,8 +9,8 @@
                 | Categoría:
                 {{ range $index, $categoria := . }}
                     {{ if $index }}, {{ end }}
-                    <a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/.htmx"
-                       hx-get="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/.htmx"
+                    <a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/"
+                       hx-get="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/"
                        hx-target="#main-content"
                        hx-swap="innerHTML"
                        hx-push-url="true"
@@ -28,8 +28,8 @@
         </div>
 
         <div class="mt-8 pt-6 border-t border-gray-700 text-center">
-            <a href="/.htmx"
-               hx-get="/.htmx"
+            <a href="/"
+               hx-get="/"
                hx-target="#main-content"
                hx-swap="innerHTML"
                hx-push-url="true"

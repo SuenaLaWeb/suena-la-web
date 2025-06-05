@@ -37,8 +37,14 @@
                         {{ .Params.description | default (.Summary | plainify | truncate 200) }}
                     </p>
                 </div>
-                <a href="{{ .Permalink }}" hx-boost="true" class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">Leer más &rarr;</a>
-                </a>
+                <a href="{{ .RelPermalink }}htmx/" 
+   hx-boost="true" 
+   hx-target="#main-content" 
+   hx-swap="innerHTML" 
+   hx-push-url="true" 
+   class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">Leer más &rarr;</a>
+    {{ .Title }}
+</a>
             </div>
         </div>
         {{ end }}
