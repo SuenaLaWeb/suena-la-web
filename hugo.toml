@@ -5,3 +5,22 @@ theme = "PaperMod" # <--- Confirma que es "PaperMod" (con P y M mayúsculas)
 
 [taxonomies]
   categoria = "categorias" # Esto es correcto para tus posts
+
+# hugo.toml
+
+[mediaTypes]
+  [mediaTypes."text/html"]
+    suffixes = ["html", "htmx"] # Le dice a Hugo que '.htmx' es una extensión válida para HTML
+
+[outputFormats]
+  [outputFormats.HTMX]
+    mediaType = "text/html"
+    # Hugo buscará plantillas con el sufijo '.htmx' (por ejemplo, single.htmx, list.htmx)
+    # La URL tendrá un sufijo .htmx (por ejemplo, /posts/mi-noticia.htmx)
+    path = "" # Deja vacío para la ruta por defecto o especifica una subcarpeta si la quieres
+    isPlainText = false
+
+[outputs]
+  home = ["HTML", "RSS"] # La página de inicio solo se renderiza como HTML estándar y RSS
+  page = ["HTML", "HTMX"] # Las páginas individuales (noticias) se renderizarán como .html y .htmx
+  section = ["HTML", "RSS", "HTMX"] # Las páginas de listado (categorías, etc.) se renderizarán como .html y .htmx
