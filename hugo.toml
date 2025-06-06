@@ -1,29 +1,14 @@
 baseURL = 'https://marvelous-custard-82f0a5.netlify.app/'
-languageCode = 'en-us' # O 'es-ve'
+languageCode = 'en-us'
 title = 'Suena La Web - Noticias y Musica'
-theme = "PaperMod" # <--- Confirma que es "PaperMod" (con P y M mayúsculas)
+theme = "PaperMod"
 
 [taxonomies]
-  categoria = "categorias" # Esto es correcto para tus posts
-
-# hugo.toml
-
-[mediaTypes]
-  [mediaTypes."text/html"]
-    suffixes = ["html", "htmx"] # Esto le dice a Hugo que '.htmx' es un sufijo válido para archivos HTML.
-
-[outputFormats]
-  [outputFormats.HTMX]
-    mediaType = "text/html"
-    # Este 'path' hará que los archivos .htmx se guarden en una subcarpeta 'htmx/'
-    # Ejemplo: /posts/mi-noticia/index.html (normal) y /posts/mi-noticia/htmx/index.html (htmx)
-    # Dejando el path vacío como te había dicho antes, Hugo generaría /posts/mi-noticia.htmx
-    # Ambos funcionan, pero usar una subcarpeta puede ser más limpio para los enlaces.
-    # Usemos una subcarpeta para mayor claridad en los enlaces HTMX.
-    path = "htmx" # Aquí se guardarán las versiones HTMX de las páginas
-    isPlainText = false
+  categoria = "categorias"
 
 [outputs]
-  home = ["HTML", "RSS"] # La página de inicio (/) se renderiza solo como HTML estándar y RSS.
-  page = ["HTML", "HTMX"] # Cada página de contenido individual (una noticia) se renderizará como .html y como una versión en /htmx/.
-  section = ["HTML", "RSS", "HTMX"] # Las páginas de listado (categorías, etc.) se renderizarán como .html y como una versión en /htmx/.
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]

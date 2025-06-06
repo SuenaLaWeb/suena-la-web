@@ -37,14 +37,9 @@
                         {{ .Params.description | default (.Summary | plainify | truncate 200) }}
                     </p>
                 </div>
-                <a href="{{ .RelPermalink }}htmx/" 
-   hx-boost="true" 
-   hx-target="#main-content" 
-   hx-swap="innerHTML" 
-   hx-push-url="true" 
-   class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">Leer más &rarr;</a>
-    {{ .Title }}
-</a>
+                {{/* ENLACE PRINCIPAL: Botón "Leer más" - Modificado */}}
+                <a href="{{ .RelPermalink }}" 
+                    class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">Leer más &rarr;</a>
             </div>
         </div>
         {{ end }}
@@ -58,7 +53,11 @@
                 <img src="{{ . }}" alt="{{ if $.Params.alt_image }}{{ $.Params.alt_image }}{{ else }}{{ $.Title }}{{ end }}" class="news-card-image">
                 {{ end }}
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2 gradient-text-green">{{ .Title }}</h3>
+                    <h3 class="text-xl font-semibold mb-2 gradient-text-green">
+                        {{/* ENLACE SECUNDARIO: Título de la noticia */}}
+                        <a href="{{ .RelPermalink }}"
+                            class="hover:underline">{{ .Title }}</a>
+                    </h3>
                     <p class="text-gray-400 text-xs mb-2">
                         {{ .Date.Format "02 de enero de 2006" }}
                         {{ with .Params.categorias }}
@@ -71,7 +70,9 @@
                     <p class="text-gray-300 text-sm">
                         {{ .Params.description | default (.Summary | plainify | truncate 100) }}
                     </p>
-                    <a href="{{ .Permalink }}" class="text-orange-400 hover:text-orange-500 text-sm mt-2 inline-block">Ver detalle →</a>
+                    {{/* ENLACE SECUNDARIO: Botón "Ver detalle" */}}
+                    <a href="{{ .RelPermalink }}" 
+                        class="text-orange-400 hover:text-orange-500 text-sm mt-2 inline-block">Ver detalle →</a>
                 </div>
             </div>
             {{ end }}

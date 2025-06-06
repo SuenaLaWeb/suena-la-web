@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main class="container mx-auto py-8 px-6 md:px-12">
+    <h1 class="text-4xl font-extrabold mb-8 text-center gradient-text-orange">Todas las Categorías</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ range .Data.Terms.ByCount }}
+        <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center">
+            <h2 class="text-3xl font-semibold mb-2">
+                {{/* Corregido: Construcción del Permalink para el término de taxonomía */}}
+                <a href="{{ "/categorias/" | relLangURL }}{{ .Name | urlize }}/" class="gradient-text-green hover:underline">{{ .Name }}</a>
+            </h2>
+            <p class="text-gray-400 text-lg">{{ .Count }} noticias</p>
+            {{/* Corregido: Construcción del Permalink para el término de taxonomía en el botón */}}
+            <a href="{{ "/categorias/" | relLangURL }}{{ .Name | urlize }}/" 
+               class="inline-block mt-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
+               Ver todas las noticias en {{ .Name }}
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</main>
+{{ end }}

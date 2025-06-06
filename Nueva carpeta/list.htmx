@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold text-white mb-6 text-center">
+        {{ .Title }}
+    </h1>
+
+    {{ $pagesToShow := slice }} {{/* Inicializamos una variable para almacenar las páginas a mostrar */}}
+
+    {{ if eq .Kind "page" }}
+        {{/* Si la página actual es de tipo "page" (como musica.md, tv.md, etc.) */}}
+        {{/* Intentamos filtrar las páginas regulares del sitio por su categoría */}}
+        {{ $currentFileName := .File.BaseFileName }} {{/* Obtenemos "musica", "tv", etc. */}}
+        {{ $pagesToShow = where site.RegularPages "Params.categorias" "intersect" (slice $currentFileName) }}
+    {{ else if eq .Kind "section" }}
+        {{/* Si es una página de sección (ej. la página principal de /noticias/) */}}
+        {{ $pagesToShow = .Paginator.Pages }}
+    {{ else if eq .Kind "term" }}
+        {{/* Si es una página de término de taxonomía real (ej. /categorias/musica/) */}}
+        {{ $pagesToShow = .Paginator.Pages }}
+    {{ end }}
+
+    {{/* Ahora iteramos sobre las páginas encontradas */}}
+    {{ if $pagesToShow }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{ range $pagesToShow.ByDate.Reverse }} {{/* Ordenar por fecha, los más nuevos primero */}}
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-orange-400 mb-2">
+                        {{/* ENLACE: Título de la noticia (apunta a .htmx) */}}
+                        <a href="{{ .RelPermalink }}.htmx"
+                           hx-boost="true"
+                           hx-target="#main-content"
+                           hx-swap="innerHTML"
+                           hx-push-url="true"
+                           hx-select="#main-content" class="hover:underline">{{ .Title }}</a>
+                    </h2>
+                    <p class="text-gray-400 text-sm mb-4">
+                        {{ .Date.Format "January 2, 2006" }}
+                        {{ if .Params.categorias }}
+                            <span class="ml-2">Categorías:
+                                {{ range .Params.categorias }}
+                                    <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">{{ . }}</span>
+                                {{ end }}
+                            </span>
+                        {{ end }}
+                    </p>
+                    <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
+                    {{/* ENLACE: Botón "Leer más" (apunta a .htmx) */}}
+                    <a href="{{ .RelPermalink }}.htmx"
+                       hx-boost="true"
+                       hx-target="#main-content"
+                       hx-swap="innerHTML"
+                       hx-push-url="true"
+                       class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
+                </div>
+            {{ end }}
+        </div>
+        {{/* ELIMINADA: La línea de paginación interna */}}
+    {{ else }}
+        <p class="text-center text-gray-400 text-xl">No hay noticias en esta categoría de momento.</p>
+    {{ end }}
+</div>
+{{ end }}

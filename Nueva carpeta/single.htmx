@@ -9,8 +9,9 @@
                 | Categoría:
                 {{ range $index, $categoria := . }}
                     {{ if $index }}, {{ end }}
-                    <a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/"
-                       hx-get="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/"
+                    {{/* ENLACE DE CATEGORÍA: ¡CORRECCIÓN AQUÍ! */}}
+                    <a href="{{ "/categorias/" | relLangURL }}{{ . | urlize }}/.htmx"
+                       hx-boost="true" {{/* Usamos hx-boost para simplificar */}}
                        hx-target="#main-content"
                        hx-swap="innerHTML"
                        hx-push-url="true"
@@ -28,8 +29,9 @@
         </div>
 
         <div class="mt-8 pt-6 border-t border-gray-700 text-center">
-            <a href="/"
-               hx-get="/"
+            {{/* ENLACE "VOLVER AL INICIO": ¡CORRECCIÓN AQUÍ! */}}
+            <a href="/.htmx" {{/* Asegúrate de que tu página de inicio (home) genere también un .htmx */}}
+               hx-boost="true" {{/* Usamos hx-boost para simplificar */}}
                hx-target="#main-content"
                hx-swap="innerHTML"
                hx-push-url="true"

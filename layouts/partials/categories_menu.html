@@ -1,0 +1,10 @@
+<nav class="categories-menu">
+    <h3 class="menu-title">Categorías</h3>
+    <ul class="category-list">
+        {{ range .Site.Taxonomies.categorias.ByCount }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Name }}</a> ({{ .Count }})
+        </li>
+        {{ end }}
+    </ul>
+</nav>

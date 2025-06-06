@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suena La Web - Noticias y Musica</title>
+    <link rel="icon" href="/image/logo_01.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c;
+            color: #e2e8f0;
+            padding-bottom: 270px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+            border-radius: 10px;
+        }
+        .gradient-text-orange {
+            background-image: linear-gradient(to right, #f97316, #fb923c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-yellow {
+            background-image: linear-gradient(to right, #eab308, #fcd34d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-green {
+            background-image: linear-gradient(to right, #10b981, #34d399);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .news-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .featured-news-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .player-fixed-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a202c;
+            padding: 10px 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .player-fixed-container iframe {
+            max-width: 400px;
+            width: 95%;
+            height: 200px;
+            border: none;
+        }
+        .player-fixed-container a {
+            color: #f97316;
+            text-decoration: none;
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="antialiased"><header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+            <a href="/"
+               hx-get="/"
+               hx-target="#main-content"
+               hx-swap="innerHTML"
+               hx-push-url="true"
+               hx-select="#main-content" class="flex items-center">
+                <img src="/image/logo_01.png" alt="Logo Suena La Web" class="w-10 h-10 rounded-full object-cover">
+                <span class="ml-3 text-3xl font-bold gradient-text-yellow">SUENA LA WEB</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-semibold">
+                <li>
+                    <a href="/"
+                       hx-get="/"
+                       hx-target="#main-content"
+                       hx-swap="innerHTML"
+                       hx-push-url="true"
+                       hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300">Inicio</a>
+                </li>
+                <li class="relative group">
+                    <a href="/noticias/"
+                       hx-get="/noticias/"
+                       hx-target="#main-content"
+                       hx-swap="innerHTML"
+                       hx-push-url="true"
+                       hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300 block">Noticias</a>
+                    <ul class="absolute hidden group-hover:block bg-gray-800 text-white shadow-lg rounded-md top-full pt-2 w-48 z-10">
+                        <li>
+                            <a href="/categorias/musica/"
+                               hx-get="/categorias/musica/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Música</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/tv/"
+                               hx-get="/categorias/tv/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">TV</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/cine/"
+                               hx-get="/categorias/cine/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Cine</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/bienestar-salud/"
+                               hx-get="/categorias/bienestar-salud/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Bienestar y salud</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/tecnologia/"
+                               hx-get="/categorias/tecnologia/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Tecnología</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Programación</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header><div id="main-content">
+        
+<main class="container mx-auto py-8 px-6 md:px-12">
+    <article class="bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+        <header class="mb-6">
+            <h1 class="text-4xl font-extrabold mb-3 gradient-text-yellow">El Festival de Música Electrónica &#39;Sonido del Futuro&#39; Anuncia Su Line-up Estelar</h1>
+            <p class="text-gray-400 text-sm mb-4">
+                Publicado el 31 de enero de 2025
+                
+                | Categoría:
+                
+                    
+                    
+                    <a href="/categorias/musica/" class="hover:underline">musica</a>
+                
+                    , 
+                    
+                    <a href="/categorias/eventos/" class="hover:underline">eventos</a>
+                
+                
+            </p>
+            
+                <img src="/image/Festival_Electronica.jpg" alt="Multitud en concierto de música electrónica" class="w-full h-80 object-cover rounded-lg mb-6 shadow-md">
+            
+        </header>
+
+        <div class="prose prose-invert max-w-none text-gray-300 leading-relaxed">
+            <p><strong>Ciudad Techno, 31 de mayo de 2025</strong> - El muy esperado Festival de Música Electrónica &lsquo;Sonido del Futuro&rsquo; ha desvelado hoy su impresionante line-up, prometiendo una experiencia inolvidable para los amantes de la música electrónica de todo el mundo. Entre los nombres más destacados se encuentran la legendaria DJ Solara, el innovador dúo ByteBeat, y el enigmático productor Echoes, quienes encabezarán el evento que se celebrará del 15 al 17 de agosto en los vastos Campos Verdes a las afueras de la ciudad.</p>
+<p>El festival, conocido por sus vanguardistas instalaciones artísticas y su compromiso con la sostenibilidad, ha superado las expectativas este año al reunir a una mezcla diversa de veteranos de la escena y talentos emergentes. La organización ha prometido mejoras significativas en la experiencia del usuario, incluyendo una expansión de las áreas de descanso, más opciones de comida y bebida, y una infraestructura de sonido y luces de última generación.</p>
+<h3 id="un-compromiso-con-la-innovación-y-la-sostenibilidad">Un Compromiso con la Innovación y la Sostenibilidad</h3>
+<p>&lsquo;Sonido del Futuro&rsquo; no es solo un festival de música; es una celebración de la cultura electrónica y la innovación. Este año, el festival implementará un sistema de reciclaje de residuos aún más robusto y fomentará el uso del transporte público con rutas de autobús dedicadas desde varias ciudades. &ldquo;Queremos que nuestros asistentes disfruten de la música y el arte, pero también que sean conscientes de nuestro impacto en el planeta&rdquo;, declaró Elena Torres, directora del festival.</p>
+<p>Las entradas de fase temprana se agotaron en cuestión de horas, lo que subraya la enorme expectación que rodea a esta edición. La última tanda de entradas estará disponible a partir del 5 de junio a través de la página web oficial del festival. Los organizadores recomiendan a los interesados adquirirlas lo antes posible, ya que se espera que se agoten rápidamente.</p>
+<p>Este evento se perfila como una cita ineludible en el calendario de festivales de música electrónica, prometiendo no solo ritmos que harán vibrar el alma, sino también una experiencia cultural completa y consciente.</p>
+
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-700 text-center">
+            
+            <a href="/" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
+                ← Volver al Inicio
+            </a>
+        </div>
+    </article>
+</main>
+
+    </div><footer class="bg-gray-900 py-6 px-6 md:px-12 mt-8">
+    <div class="container mx-auto text-center text-gray-500 text-sm">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="https://twitter.com/TuUsuarioDeTwitter" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/X.png" alt="X (Twitter)" class="w-8 h-8">
+            </a>
+            <a href="https://instagram.com/TuUsuarioDeInstagram" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/instagram.png" alt="Instagram" class="w-8 h-8">
+            </a>
+            <a href="https://youtube.com/TuCanalDeYouTube" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/youtube.png" alt="YouTube" class="w-8 h-8">
+            </a>
+            <a href="https://tiktok.com/@TuUsuarioDeTikTok" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/tiktok.png" alt="TikTok" class="w-8 h-8">
+            </a>
+        </div>
+        <p>© 2025 Suena La Web. Todos los derechos reservados.</p>
+        <p class="mt-2">Diseñado con <span class="text-red-500">♥</span> para la mejor experiencia nocturna.</p>
+    </div>
+</footer><div class="player-fixed-container">
+        <iframe src="https://zeno.fm/player/suenalaweb-net"
+                width="380" height="169"
+                frameborder="0" scrolling="no"
+                allowtransparency="true"
+                allow="encrypted-media"
+                title="Reproductor de Audio Suena La Web">
+        </iframe>
+        <a href="https://zeno.fm/" target="_blank"></a>
+    </div>
+
+</body>
+</html>

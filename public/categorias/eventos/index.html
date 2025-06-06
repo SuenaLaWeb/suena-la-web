@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suena La Web - Noticias y Musica</title>
+    <link rel="icon" href="/image/logo_01.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c;
+            color: #e2e8f0;
+            padding-bottom: 270px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+            border-radius: 10px;
+        }
+        .gradient-text-orange {
+            background-image: linear-gradient(to right, #f97316, #fb923c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-yellow {
+            background-image: linear-gradient(to right, #eab308, #fcd34d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-green {
+            background-image: linear-gradient(to right, #10b981, #34d399);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .news-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .featured-news-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .player-fixed-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a202c;
+            padding: 10px 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .player-fixed-container iframe {
+            max-width: 400px;
+            width: 95%;
+            height: 200px;
+            border: none;
+        }
+        .player-fixed-container a {
+            color: #f97316;
+            text-decoration: none;
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="antialiased"><header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+            <a href="/"
+               hx-get="/"
+               hx-target="#main-content"
+               hx-swap="innerHTML"
+               hx-push-url="true"
+               hx-select="#main-content" class="flex items-center">
+                <img src="/image/logo_01.png" alt="Logo Suena La Web" class="w-10 h-10 rounded-full object-cover">
+                <span class="ml-3 text-3xl font-bold gradient-text-yellow">SUENA LA WEB</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-semibold">
+                <li>
+                    <a href="/"
+                       hx-get="/"
+                       hx-target="#main-content"
+                       hx-swap="innerHTML"
+                       hx-push-url="true"
+                       hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300">Inicio</a>
+                </li>
+                <li class="relative group">
+                    <a href="/noticias/"
+                       hx-get="/noticias/"
+                       hx-target="#main-content"
+                       hx-swap="innerHTML"
+                       hx-push-url="true"
+                       hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300 block">Noticias</a>
+                    <ul class="absolute hidden group-hover:block bg-gray-800 text-white shadow-lg rounded-md top-full pt-2 w-48 z-10">
+                        <li>
+                            <a href="/categorias/musica/"
+                               hx-get="/categorias/musica/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Música</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/tv/"
+                               hx-get="/categorias/tv/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">TV</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/cine/"
+                               hx-get="/categorias/cine/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Cine</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/bienestar-salud/"
+                               hx-get="/categorias/bienestar-salud/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Bienestar y salud</a>
+                        </li>
+                        <li>
+                            <a href="/categorias/tecnologia/"
+                               hx-get="/categorias/tecnologia/"
+                               hx-target="#main-content"
+                               hx-swap="innerHTML"
+                               hx-push-url="true"
+                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Tecnología</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Programación</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header><div id="main-content">
+        
+<main class="container mx-auto py-8 px-6 md:px-12">
+    <h1 class="text-4xl font-extrabold mb-8 text-center gradient-text-orange">
+        Noticias en la categoría: Eventos
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+            
+            <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-orange-400 mb-2">
+                    <a href="/noticias/mi-primera-noticia/" class="hover:underline">El Festival de Música Electrónica &#39;Sonido del Futuro&#39; Anuncia Su Line-up Estelar</a>
+                </h2>
+                <p class="text-gray-400 text-sm mb-4">
+                    31 de enero de 2025
+                    
+                    | Categorías:
+                    
+                        <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">musica</span>
+                    
+                        <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">eventos</span>
+                    
+                    
+                </p>
+                <p class="text-gray-300">Ciudad Techno, 31 de mayo de 2025 - El muy esperado Festival de Música Electrónica &amp;lsquo;Sonido del Futuro&amp;rsquo; ha desvelado hoy su impresionante …</p>
+                <a href="/noticias/mi-primera-noticia/" 
+                   class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
+            </div>
+            
+            <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-orange-400 mb-2">
+                    <a href="/noticias/concierto-benefico-ninos/" class="hover:underline">Concierto Benéfico &#39;Voces por los Niños&#39; Recauda Fondos Récord</a>
+                </h2>
+                <p class="text-gray-400 text-sm mb-4">
+                    30 de enero de 2025
+                    
+                    | Categorías:
+                    
+                        <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">Musica</span>
+                    
+                        <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">Eventos</span>
+                    
+                    
+                </p>
+                <p class="text-gray-300">Concierto Benéfico &amp;lsquo;Voces por los Niños&amp;rsquo; Recauda Fondos Récord Centro Cultural, 30 de mayo de 2025 - La gala benéfica &amp;lsquo;Voces por los …</p>
+                <a href="/noticias/concierto-benefico-ninos/" 
+                   class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
+            </div>
+            
+        
+    </div>
+     {# Si tienes un partial de paginación #}
+</main>
+
+    </div><footer class="bg-gray-900 py-6 px-6 md:px-12 mt-8">
+    <div class="container mx-auto text-center text-gray-500 text-sm">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="https://twitter.com/TuUsuarioDeTwitter" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/X.png" alt="X (Twitter)" class="w-8 h-8">
+            </a>
+            <a href="https://instagram.com/TuUsuarioDeInstagram" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/instagram.png" alt="Instagram" class="w-8 h-8">
+            </a>
+            <a href="https://youtube.com/TuCanalDeYouTube" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/youtube.png" alt="YouTube" class="w-8 h-8">
+            </a>
+            <a href="https://tiktok.com/@TuUsuarioDeTikTok" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                <img src="/image/tiktok.png" alt="TikTok" class="w-8 h-8">
+            </a>
+        </div>
+        <p>© 2025 Suena La Web. Todos los derechos reservados.</p>
+        <p class="mt-2">Diseñado con <span class="text-red-500">♥</span> para la mejor experiencia nocturna.</p>
+    </div>
+</footer><div class="player-fixed-container">
+        <iframe src="https://zeno.fm/player/suenalaweb-net"
+                width="380" height="169"
+                frameborder="0" scrolling="no"
+                allowtransparency="true"
+                allow="encrypted-media"
+                title="Reproductor de Audio Suena La Web">
+        </iframe>
+        <a href="https://zeno.fm/" target="_blank"></a>
+    </div>
+
+</body>
+</html>

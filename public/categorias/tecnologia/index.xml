@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tecnologia on Suena La Web - Noticias y Musica</title>
+    <link>https://marvelous-custard-82f0a5.netlify.app/categorias/tecnologia/</link>
+    <description>Recent content in Tecnologia on Suena La Web - Noticias y Musica</description>
+    <generator>Hugo -- 0.111.1</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 May 2025 18:03:06 -0400</lastBuildDate>
+    <atom:link href="https://marvelous-custard-82f0a5.netlify.app/categorias/tecnologia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Las 5 Tendencias Tecnológicas que Marcarán el 2025</title>
+      <link>https://marvelous-custard-82f0a5.netlify.app/noticias/tendencias-tecnologicas-2025/</link>
+      <pubDate>Thu, 29 May 2025 18:03:06 -0400</pubDate>
+      <guid>https://marvelous-custard-82f0a5.netlify.app/noticias/tendencias-tecnologicas-2025/</guid>
+      <description>Desde la inteligencia artificial generativa hasta la computación cuántica, el futuro tecnológico ya está aquí.</description>
+    </item>
+  </channel>
+</rss>

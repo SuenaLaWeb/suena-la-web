@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold text-white mb-6 text-center">
+        {{ .Title }}
+    </h1>
+
+    {{/* Si tu página de inicio lista contenido, el siguiente bloque es apropiado */}}
+    {{/* Esto es similar a list.htmx, pero adaptado para la página principal */}}
+    {{ if .Paginator }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{ range .Paginator.Pages.ByDate.Reverse }} {{/* Ordenar por fecha, los más nuevos primero */}}
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold text-orange-400 mb-2">
+                        {{/* ENLACE: Título de la noticia (apunta a .htmx) */}}
+                        <a href="{{ .RelPermalink }}.htmx"
+                           hx-boost="true"
+                           hx-target="#main-content"
+                           hx-swap="innerHTML"
+                           hx-push-url="true"
+                           hx-select="#main-content" class="hover:underline">{{ .Title }}</a>
+                    </h2>
+                    <p class="text-gray-400 text-sm mb-4">
+                        {{ .Date.Format "January 2, 2006" }}
+                        {{ if .Params.categorias }}
+                            <span class="ml-2">Categorías:
+                                {{ range .Params.categorias }}
+                                    <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">{{ . }}</span>
+                                {{ end }}
+                            </span>
+                        {{ end }}
+                    </p>
+                    <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
+                    {{/* ENLACE: Botón "Leer más" (apunta a .htmx) */}}
+                    <a href="{{ .RelPermalink }}.htmx"
+                       hx-boost="true"
+                       hx-target="#main-content"
+                       hx-swap="innerHTML"
+                       hx-push-url="true"
+                       class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
+                </div>
+            {{ end }}
+        </div>
+        {{/* ELIMINADA: La línea de paginación interna */}}
+    {{ else }}
+        {{/* Si tu página de inicio tiene contenido estático o es diferente, puedes ponerlo aquí */}}
+        {{ .Content }}
+        <p class="text-center text-gray-400 text-xl">Bienvenido a Suena La Web. Explora nuestras noticias.</p>
+    {{ end }}
+</div>
+{{ end }}

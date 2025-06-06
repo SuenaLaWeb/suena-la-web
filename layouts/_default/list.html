@@ -25,12 +25,8 @@
                 {{ range $pagesToShow.ByDate.Reverse }} {{/* Ordenar por fecha, los más nuevos primero */}}
                     <div class="bg-gray-800 rounded-lg shadow-lg p-6">
                         <h2 class="text-2xl font-semibold text-orange-400 mb-2">
-                            <a href="{{ .Permalink }}"
-                               hx-get="{{ .Permalink }}"
-                               hx-target="#main-content"
-                               hx-swap="innerHTML"
-                               hx-push-url="true"
-                               hx-select="#main-content" class="hover:underline">{{ .Title }}</a>
+                            {{/* PRIMER ENLACE: Título de la noticia - MODIFICADO */}}
+                            <a href="{{ .RelPermalink }}" class="hover:underline">{{ .Title }}</a>
                         </h2>
                         <p class="text-gray-400 text-sm mb-4">
                             {{ .Date.Format "January 2, 2006" }}
@@ -43,12 +39,9 @@
                             {{ end }}
                         </p>
                         <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
-                        <a href="{{ .Permalink }}"
-                           hx-get="{{ .Permalink }}"
-                           hx-target="#main-content"
-                           hx-swap="innerHTML"
-                           hx-push-url="true"
-                           href="{{ .Permalink }}" hx-boost="true" class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
+                        {{/* SEGUNDO ENLACE: Botón "Leer más" - MODIFICADO */}}
+                        <a href="{{ .RelPermalink }}" 
+                           class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
                     </div>
                 {{ end }}
             </div>
