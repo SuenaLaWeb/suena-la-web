@@ -100,11 +100,10 @@
 
     {{- partial "footer.html" . -}}
     
-    {# ¡Aquí incluimos tu partial de reproductor existente! #}
     {{- partial "player.html" . -}}
 
-    {# Este es el enlace a nuestro nuevo JavaScript para la carga dinámica #}
-    <script src="/js/main.js"></script> 
+    {{ $mainJs := resources.Get "js/main.js" | js.Build }}
+<script src="{{ $mainJs.Permalink }}"></script>
 
 </body>
 </html>
