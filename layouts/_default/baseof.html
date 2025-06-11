@@ -7,13 +7,12 @@
     <link rel="icon" href="/image/logo_01.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #1a202c;
             color: #e2e8f0;
-            padding-bottom: 270px;
+            padding-bottom: 270px; /* Ajusta este padding si el reproductor es más grande/pequeño */
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -58,6 +57,10 @@
             height: 400px;
             object-fit: cover;
         }
+        /* Estas reglas CSS para .player-fixed-container y sus sub-elementos ahora deberían estar
+           en tu archivo CSS principal si estás usando Tailwind, o en un bloque <style> en el
+           player.html si lo prefieres. Las he movido aquí porque estaban en tu baseof original,
+           pero lo ideal es que las maneje Tailwind o un CSS externo. */
         .player-fixed-container {
             position: fixed;
             bottom: 0;
@@ -72,8 +75,8 @@
             align-items: center;
         }
         .player-fixed-container iframe {
-            max-width: 400px;
-            width: 95%;
+            max-width: 400px; /* Aquí ajusté a 400px, pero tu player.html usa 100% width. Esto puede necesitar un ajuste. */
+            width: 95%; /* Si tu iframe tiene width="100%", este 95% aplica al contenedor, no al iframe en sí. */
             height: 200px;
             border: none;
         }
@@ -91,22 +94,17 @@
 
     {{- partial "header.html" . -}}
 
-    <div id="main-content">
+    <div id="main-content"> {# <-- ¡Este ID es crucial para JS! #}
         {{ block "main" . }}{{ end }}
     </div>
 
     {{- partial "footer.html" . -}}
+    
+    {# ¡Aquí incluimos tu partial de reproductor existente! #}
+    {{- partial "player.html" . -}}
 
-    <div class="player-fixed-container">
-        <iframe src="https://zeno.fm/player/suenalaweb-net"
-                width="380" height="169"
-                frameborder="0" scrolling="no"
-                allowtransparency="true"
-                allow="encrypted-media"
-                title="Reproductor de Audio Suena La Web">
-        </iframe>
-        <a href="https://zeno.fm/" target="_blank"></a>
-    </div>
+    {# Este es el enlace a nuestro nuevo JavaScript para la carga dinámica #}
+    <script src="/js/main.js"></script> 
 
 </body>
 </html>
