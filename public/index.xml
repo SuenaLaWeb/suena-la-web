@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Suena La Web - Noticias y Musica</title>
     <link>https://marvelous-custard-82f0a5.netlify.app/</link>
     <description>Recent content on Suena La Web - Noticias y Musica</description>
-    <generator>Hugo -- 0.111.1</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 31 May 2025 18:03:06 -0400</lastBuildDate>
-    <atom:link href="https://marvelous-custard-82f0a5.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 May 2025 18:03:06 -0400</lastBuildDate><atom:link href="https://marvelous-custard-82f0a5.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>El Festival de Música Electrónica &#39;Sonido del Futuro&#39; Anuncia Su Line-up Estelar</title>
       <link>https://marvelous-custard-82f0a5.netlify.app/noticias/mi-primera-noticia/</link>
       <pubDate>Sat, 31 May 2025 18:03:06 -0400</pubDate>
+      
       <guid>https://marvelous-custard-82f0a5.netlify.app/noticias/mi-primera-noticia/</guid>
-      <description>La edición de este año promete ser la más grande hasta la fecha con artistas de talla mundial y una experiencia inmersiva.</description>
+      <description>Ciudad Techno, 31 de mayo de 2025 - El muy esperado Festival de Música Electrónica &amp;lsquo;Sonido del Futuro&amp;rsquo; ha desvelado hoy su impresionante line-up, prometiendo una experiencia inolvidable para los amantes de la música electrónica de todo el mundo. Entre los nombres más destacados se encuentran la legendaria DJ Solara, el innovador dúo ByteBeat, y el enigmático productor Echoes, quienes encabezarán el evento que se celebrará del 15 al 17 de agosto en los vastos Campos Verdes a las afueras de la ciudad.</description>
     </item>
+    
     <item>
       <title>Concierto Benéfico &#39;Voces por los Niños&#39; Recauda Fondos Récord</title>
       <link>https://marvelous-custard-82f0a5.netlify.app/noticias/concierto-benefico-ninos/</link>
       <pubDate>Fri, 30 May 2025 10:00:00 -0400</pubDate>
+      
       <guid>https://marvelous-custard-82f0a5.netlify.app/noticias/concierto-benefico-ninos/</guid>
-      <description>Artistas locales e internacionales se unen para una noble causa, superando las expectativas de recaudación.</description>
+      <description>Concierto Benéfico &amp;lsquo;Voces por los Niños&amp;rsquo; Recauda Fondos Récord Centro Cultural, 30 de mayo de 2025 - La gala benéfica &amp;lsquo;Voces por los Niños&amp;rsquo;, celebrada anoche en el Centro Cultural de la ciudad, ha culminado con un éxito rotundo, superando todas las expectativas de recaudación. El evento, que contó con la participación de reconocidos artistas locales e internacionales, logró reunir una cifra sin precedentes destinada a programas educativos para niños en situación de vulnerabilidad.</description>
     </item>
+    
     <item>
       <title>Las 5 Tendencias Tecnológicas que Marcarán el 2025</title>
       <link>https://marvelous-custard-82f0a5.netlify.app/noticias/tendencias-tecnologicas-2025/</link>
       <pubDate>Thu, 29 May 2025 18:03:06 -0400</pubDate>
+      
       <guid>https://marvelous-custard-82f0a5.netlify.app/noticias/tendencias-tecnologicas-2025/</guid>
-      <description>Desde la inteligencia artificial generativa hasta la computación cuántica, el futuro tecnológico ya está aquí.</description>
+      <description>Las 5 Tendencias Tecnológicas que Marcarán el 2025 Mundo Digital, 29 de mayo de 2025 - El panorama tecnológico avanza a pasos agigantados, y el año 2025 se perfila como un punto de inflexión con la consolidación de varias tendencias disruptivas. Expertos de la industria han identificado cinco áreas clave que redefinirán la forma en que interactuamos con la tecnología y el mundo que nos rodea.
+La Inteligencia Artificial Generativa continúa a la cabeza, con modelos cada vez más sofisticados capaces de crear contenido indistinguible del humano.</description>
     </item>
+    
   </channel>
 </rss>
