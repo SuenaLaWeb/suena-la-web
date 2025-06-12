@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados para el contenido de las noticias */
+@layer components {
+    h2 {
+        @apply text-3xl md:text-4xl font-bold text-gray-50 mb-4 mt-8;
+    }
+
+    h3 {
+        @apply text-2xl md:text-3xl font-semibold text-gray-100 mb-3 mt-6;
+    }
+
+    h4 {
+        @apply text-xl md:text-2xl font-medium text-gray-100 mb-2 mt-4;
+    }
+
+    p {
+        @apply text-lg leading-relaxed mb-4;
+    }
+
+    a {
+        @apply text-orange-400 hover:text-orange-300 underline;
+    }
+
+    ul {
+        @apply list-disc list-inside mb-4 pl-4;
+    }
+
+    ol {
+        @apply list-decimal list-inside mb-4 pl-4;
+    }
+
+    blockquote {
+        @apply border-l-4 border-orange-500 pl-4 py-2 italic text-gray-400 mb-4;
+    }
+}
