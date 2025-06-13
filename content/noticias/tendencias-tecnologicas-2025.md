@@ -1,7 +1,7 @@
 ---
 title: "Las 5 Tendencias Tecnológicas que Marcarán el 2025"
 date: 2025-05-29T18:03:06-04:00 # Otra fecha anterior
-draft: false
+draft: true
 description: "Desde la inteligencia artificial generativa hasta la computación cuántica, el futuro tecnológico ya está aquí."
 image: "/image/Nuevas_Tecnologias.jpg"
 alt_image: "Cerebro robótico con conexiones tecnológicas"

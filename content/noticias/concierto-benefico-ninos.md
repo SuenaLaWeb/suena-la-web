@@ -1,7 +1,7 @@
 ---
 title: "Concierto Benéfico 'Voces por los Niños' Recauda Fondos Récord"
 date: 2025-05-30T10:00:00-04:00 # Fecha anterior a la primera noticia para ordenar
-draft: false
+draft: true
 description: "Artistas locales e internacionales se unen para una noble causa, superando las expectativas de recaudación."
 image: "/image/Concierto_Benefico.jpg"
 alt_image: "Multitud animada en un concierto benéfico"

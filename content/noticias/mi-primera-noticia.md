@@ -1,7 +1,7 @@
 ---
 title: "El Festival de Música Electrónica 'Sonido del Futuro' Anuncia Su Line-up Estelar"
 date: 2025-05-31T18:03:06-04:00
-draft: false # ¡CAMBIADO A FALSE para que sea visible!
+draft: true # ¡CAMBIADO A FALSE para que sea visible!
 description: "La edición de este año promete ser la más grande hasta la fecha con artistas de talla mundial y una experiencia inmersiva."
 image: "/image/Festival_Electronica.jpg" # Ruta a la imagen principal de la noticia
 alt_image: "Multitud en concierto de música electrónica"
