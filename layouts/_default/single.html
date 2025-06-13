@@ -4,7 +4,7 @@
         <header class="mb-6">
             <h1 class="text-4xl font-extrabold mb-3 gradient-text-yellow">{{ .Title }}</h1>
             <p class="text-gray-400 text-sm mb-4">
-                Publicado el {{ .Date.Format "02 de enero de 2006" }}
+                Publicado el {{ .Date.Format "January02, 2006" }}
                 {{ with .Params.categorias }}
                 | Categoría:
                 {{ range $index, $categoria := . }}
