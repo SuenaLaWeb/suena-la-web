@@ -1,0 +1,20 @@
+# netlify.toml
+[build]
+  command = "npm install && hugo --minify"
+  publish = "public"
+
+[build.environment]
+  # Especifica la versión de Hugo. Usa la misma que tienes localmente.
+  HUGO_VERSION = "0.131.0"
+  # Especifica la versión de Node.js
+  NODE_VERSION = "20" # O "22" si tu 'node -v' te dio v22.x.x
+
+# Si tienes borradores o contenido futuro que no quieres publicar, puedes ajustar esto:
+[context.production]
+  environment = { HUGO_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { HUGO_ENV = "development" }
+
+[context.branch-deploy]
+  environment = { HUGO_ENV = "development" }
