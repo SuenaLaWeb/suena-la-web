@@ -1,38 +1,134 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+* assets/css/main.css
+* Este archivo es procesado por Tailwind CSS y PostCSS.
+* Contiene las directivas de Tailwind y tus estilos personalizados.
+*/
 
-/* Estilos personalizados para el contenido de las noticias */
+@tailwind base;        /* Resetea los estilos por defecto del navegador y añade utilidades base de Tailwind */
+@tailwind components;  /* Incluye tus estilos definidos con @layer components */
+@tailwind utilities;   /* Incluye todas las clases de utilidad de Tailwind (flex, text-lg, mb-8, etc.) */
+
+/*
+* Sección de Componentes Personalizados (@layer components)
+* Aquí defines estilos para tus propios "componentes" o para anular estilos base
+* de Tailwind de forma específica para elementos HTML como h1, p, ul, etc.
+*/
 @layer components {
+    /* Estilos para Títulos H2 */
     h2 {
         @apply text-3xl md:text-4xl font-bold text-gray-50 mb-4 mt-8;
     }
 
+    /* Estilos para Títulos H3 */
     h3 {
         @apply text-2xl md:text-3xl font-semibold text-gray-100 mb-3 mt-6;
     }
 
+    /* Estilos para Títulos H4 */
     h4 {
         @apply text-xl md:text-2xl font-medium text-gray-100 mb-2 mt-4;
     }
 
+    /* Estilos para Párrafos - ¡Aquí está el margen inferior! */
     p {
-        @apply text-lg leading-relaxed mb-4;
+        @apply text-lg leading-relaxed mb-8; /* text-lg: tamaño de fuente grande; leading-relaxed: interlineado cómodo; mb-8: margen inferior de 2rem (32px) */
     }
 
+    /* Estilos para Enlaces (Hyperlinks) - ¡SUBRAYADO ELIMINADO AQUÍ! */
     a {
-        @apply text-orange-400 hover:text-orange-300 underline;
+        @apply text-orange-400 hover:text-orange-300; /* ¡Eliminado "underline" de esta línea! */
     }
 
+    /* Estilos para Listas No Ordenadas (UL) */
     ul {
-        @apply list-disc list-inside mb-4 pl-4;
+        @apply list-disc list-inside mb-4 pl-4; /* list-disc: viñetas de disco; list-inside: viñetas dentro del contenido; mb-4: margen inferior; pl-4: padding izquierdo */
+        /* Aseguramos que los ULs no tengan estilos por defecto del navegador que interfieran con Tailwind */
+        list-style: none; /* Elimina viñetas si @apply list-disc no funciona por alguna razón */
+        margin: 0;        /* Asegura que no haya márgenes externos */
+        padding: 0;       /* Asegura que no haya padding externo */
     }
 
+    /* Estilos para Listas Ordenadas (OL) */
     ol {
-        @apply list-decimal list-inside mb-4 pl-4;
+        @apply list-decimal list-inside mb-4 pl-4; /* list-decimal: numeración; list-inside: números dentro del contenido; mb-4: margen inferior; pl-4: padding izquierdo */
+        list-style: none; /* Elimina numeración si @apply list-decimal no funciona por alguna razón */
+        margin: 0;        /* Asegura que no haya márgenes externos */
+        padding: 0;       /* Asegura que no haya padding externo */
     }
 
+    /* Estilos para Citas en Bloque (Blockquote) */
     blockquote {
-        @apply border-l-4 border-orange-500 pl-4 py-2 italic text-gray-400 mb-4;
+        @apply border-l-4 border-orange-500 pl-4 py-2 italic text-gray-400 mb-4; /* border-l-4: borde izquierdo grueso; border-orange-500: color naranja; pl-4: padding izquierdo; py-2: padding vertical; italic: texto en cursiva; text-gray-400: color de texto gris; mb-4: margen inferior */
+    }
+
+    /* Estilo para el texto con degradado amarillo (como el del título principal) */
+    .gradient-text-yellow {
+        background-image: linear-gradient(to right, #facc15, #f59e0b); /* Degradado de amarillo a naranja */
+        -webkit-background-clip: text; /* Recorta el fondo al texto */
+        -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente para mostrar el fondo recortado */
+        /* Color de respaldo por si el navegador no soporta -webkit-text-fill-color */
+        color: #facc15;
+    }
+
+    /*
+    * Estilos Específicos para el Menú de Navegación (si nav ul no se comporta como flex)
+    * Estas reglas son para forzar el comportamiento lineal del menú si las clases en el HTML
+    * no son suficientes, lo cual podría pasar si hay estilos base que interfieren.
+    */
+    nav ul {
+        display: flex;       /* Convierte el UL en un contenedor flex */
+        flex-wrap: wrap;     /* Permite que los elementos salten de línea si no caben */
+        justify-content: center; /* Centra los elementos horizontalmente */
+        /* gap: 1rem; */ /* Podrías usar gap en lugar de space-x si lo prefieres para espaciado */
+    }
+    nav li {
+        list-style: none; /* Asegura que no haya viñetas en los items del menú */
+        margin: 0;        /* Elimina márgenes extra */
+        padding: 0;       /* Elimina paddings extra */
+    }
+
+    /* ESTILOS PARA EL REPRODUCTOR COMO FRANJA INFERIOR CENTRAL */
+    .player-fixed-container {
+        position: fixed;   /* Fija el elemento en relación a la ventana del navegador */
+        bottom: 0;         /* Pega el reproductor al borde inferior de la pantalla */
+        left: 0;           /* Pega el reproductor al borde izquierdo */
+        right: 0;          /* Pega el reproductor al borde derecho (ocupando todo el ancho) */
+        width: 100%;       /* Asegura que ocupe el 100% del ancho disponible */
+        z-index: 999;      /* Asegura que esté por encima de la mayoría de los demás elementos */
+
+        /* Aplica aquí las clases de Tailwind para el diseño visual del contenedor del reproductor */
+        @apply bg-gray-800 shadow-lg; /* quitado p-4 de aquí para controlarlo con padding */
+
+        /* Padding para el contenido dentro de la franja (ajustable) */
+        padding: 1rem 1.5rem; /* Padding vertical de 1rem, horizontal de 1.5rem */
+        display: flex; /* Para centrar el contenido del reproductor */
+        align-items: center; /* Centrar verticalmente el contenido */
+        justify-content: center; /* Centrar horizontalmente el contenido del reproductor */
+    }
+
+    /* Ajustes específicos para el iframe dentro de la franja del reproductor */
+    .player-fixed-container iframe {
+        display: block; /* Asegura que el iframe se comporte correctamente */
+        margin: 0 auto; /* Centra el iframe dentro de la franja */
+        height: 200px; /* Altura más adecuada para una franja. AJUSTA SI ES NECESARIO */
+        width: 100%; /* Asegura que ocupe el ancho disponible dentro de la franja */
+        max-width: 600px; /* Opcional: Limita el ancho máximo del iframe para pantallas muy grandes */
+    }
+
+    /* Ajustes específicos para el h2 (título) dentro del reproductor */
+    .player-fixed-container h2 {
+        margin-bottom: 0; /* Elimina el margen inferior predeterminado para el h2 dentro del reproductor */
+        margin-right: 1rem; /* Añade un espacio a la derecha del título del reproductor */
     }
 }
+
+/*
+* Cualquier estilo CSS que hayas tenido en el <style> de baseof.html que no fuera de Tailwind
+* y que necesites mantener, pégalo aquí, FUERA de @layer components.
+* Si ya los moviste todos y eliminaste el <style> de baseof.html, puedes borrar esta sección de comentario.
+*/
+/*
+body {
+    font-family: 'Arial', sans-serif;
+}
+*/

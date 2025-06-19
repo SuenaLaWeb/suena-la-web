@@ -1,8 +1,24 @@
 {
+  "name": "suena-la-web",
+  "version": "1.0.0",
+  "description": "Sitio web de Suena La Web VE con Hugo y Tailwind CSS v3",
+  "main": "index.js",
+  "scripts": {
+    "tailwind:init": "tailwindcss init -p",
+    "tailwind:build": "tailwindcss -i ./assets/css/main.css -o ./static/css/styles.css --minify",
+    "tailwind:watch": "tailwindcss -i ./assets/css/main.css -o ./static/css/styles.css --watch"
+  },
+  "keywords": [
+    "Hugo",
+    "Tailwind CSS",
+    "Web Development"
+  ],
+  "author": "Suena La Web VE",
+  "license": "MIT",
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.5",
-    "tailwindcss": "^4.1.10"
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4"
   }
 }
