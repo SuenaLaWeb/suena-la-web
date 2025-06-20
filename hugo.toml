@@ -1,7 +1,7 @@
 # hugo.toml
 
 # Configuración básica del sitio
-baseURL = "/"                       # IMPORTANTE: Usar "/" para Netlify y desarrollo local.
+baseURL = "https://SuenaLaWeb.github.io/suena-la-web/"  # IMPORTANTE: Usar "/" para Netlify y desarrollo local.
                                     # Netlify asignará la URL final cuando el sitio se despliegue.
 languageCode = "es-ve"              # Código de idioma del sitio
 title = "Suena La Web VE"           # Título principal del sitio web
