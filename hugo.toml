@@ -35,3 +35,13 @@ paginate = 10                       # Muestra 10 elementos por página por defec
   section = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
+
+# Configuración para URL relativas y URLs limpias
+# Esto es crucial para despliegues en subdirectorios como GitHub Pages
+relativeURLs = true      # Genera URLs relativas para todos los assets (imágenes, CSS, JS)
+uglyURLs = false         # Mantiene URLs limpias (sin .html al final)
+disablePathToLower = true # Previene que Hugo convierta rutas a minúsculas, útil en algunos hosts
+
+# Si tu baseURL incluye el subdirectorio (ej. /suena-la-web/), esto ayuda:
+# Si tus assets (imágenes) están en la carpeta 'static/', Hugo los servirá directamente.
+# Pero si están en 'assets/', PostCSS los procesará. Asegúrate de que las rutas sean consistentes.
