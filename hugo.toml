@@ -4,7 +4,7 @@
 baseURL = "https://SuenaLaWeb.github.io/suena-la-web/"  # IMPORTANTE: Usar "/" para Netlify y desarrollo local.
                                     # Netlify asignará la URL final cuando el sitio se despliegue.
 languageCode = "es-ve"              # Código de idioma del sitio
-title = "Suena La Web VE"           # Título principal del sitio web
+title = "Suena La Web"           # Título principal del sitio web
 
 # Opciones de paginación (cuántos elementos por página, ej. en listas de noticias)
 paginate = 10                       # Muestra 10 elementos por página por defecto
