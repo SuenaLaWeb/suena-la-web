@@ -7,23 +7,9 @@
     {{ partial "favicons.html" . }}
 
     {{ $styles := resources.Get "css/main.css" | postCSS (dict "config" "./postcss.config.js") | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+    <link rel="icon" href="{{ "/favicon.ico" | absURL }}">
 
     </head>
 <body class="antialiased dark">
-
-    {{- partial "header.html" . -}}
-
-    <div id="main-content">
-        {{ block "main" . }}{{ end }}
-    </div>
-
-    {{- partial "footer.html" . -}}
-
-    {{- partial "player.html" . -}}
-
-    {{ $mainJs := resources.Get "js/main.js" | js.Build }}
-    <script src="{{ $mainJs.Permalink }}"></script>
-
-</body>
+    </body>
 </html>
