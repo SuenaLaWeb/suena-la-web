@@ -2,12 +2,12 @@
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center mb-4 md:mb-0">
             <a href="/"
-               hx-get="/"
-               hx-target="#main-content"
-               hx-swap="innerHTML"
-               hx-push-url="true"
-               hx-select="#main-content" class="flex items-center">
-                <img src="/image/logo_01.png" alt="Logo Suena La Web" class="w-10 h-10 rounded-full object-cover">
+                hx-get="/"
+                hx-target="#main-content"
+                hx-swap="innerHTML"
+                hx-push-url="true"
+                hx-select="#main-content" class="flex items-center">
+                <img src="{{ "/image/logo_01.png" | absURL }}" alt="Logo Suena La Web" class="w-10 h-10 rounded-full object-cover">
                 <span class="ml-3 text-3xl font-bold gradient-text-yellow">SUENA LA WEB</span>
             </a>
         </div>
@@ -15,59 +15,59 @@
             <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-semibold">
                 <li>
                     <a href="/"
-                       hx-get="/"
-                       hx-target="#main-content"
-                       hx-swap="innerHTML"
-                       hx-push-url="true"
-                       hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300">Inicio</a>
+                        hx-get="/"
+                        hx-target="#main-content"
+                        hx-swap="innerHTML"
+                        hx-push-url="true"
+                        hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300">Inicio</a>
                 </li>
                 <li class="relative group">
                     <a href="/noticias/"
-                       hx-get="/noticias/"
-                       hx-target="#main-content"
-                       hx-swap="innerHTML"
-                       hx-push-url="true"
-                       hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300 block">Noticias</a>
+                        hx-get="/noticias/"
+                        hx-target="#main-content"
+                        hx-swap="innerHTML"
+                        hx-push-url="true"
+                        hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300 block">Noticias</a>
                     <ul class="absolute hidden group-hover:block bg-gray-800 text-white shadow-lg rounded-md top-full pt-2 w-48 z-10">
                         <li>
                             <a href="/categorias/musica/"
-                               hx-get="/categorias/musica/"
-                               hx-target="#main-content"
-                               hx-swap="innerHTML"
-                               hx-push-url="true"
-                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Música</a>
+                                hx-get="/categorias/musica/"
+                                hx-target="#main-content"
+                                hx-swap="innerHTML"
+                                hx-push-url="true"
+                                hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Música</a>
                         </li>
                         <li>
                             <a href="/categorias/tv/"
-                               hx-get="/categorias/tv/"
-                               hx-target="#main-content"
-                               hx-swap="innerHTML"
-                               hx-push-url="true"
-                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">TV</a>
+                                hx-get="/categorias/tv/"
+                                hx-target="#main-content"
+                                hx-swap="innerHTML"
+                                hx-push-url="true"
+                                hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">TV</a>
                         </li>
                         <li>
                             <a href="/categorias/cine/"
-                               hx-get="/categorias/cine/"
-                               hx-target="#main-content"
-                               hx-swap="innerHTML"
-                               hx-push-url="true"
-                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Cine</a>
+                                hx-get="/categorias/cine/"
+                                hx-target="#main-content"
+                                hx-swap="innerHTML"
+                                hx-push-url="true"
+                                hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Cine</a>
                         </li>
                         <li>
                             <a href="/categorias/bienestar-salud/"
-                               hx-get="/categorias/bienestar-salud/"
-                               hx-target="#main-content"
-                               hx-swap="innerHTML"
-                               hx-push-url="true"
-                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Bienestar y salud</a>
+                                hx-get="/categorias/bienestar-salud/"
+                                hx-target="#main-content"
+                                hx-swap="innerHTML"
+                                hx-push-url="true"
+                                hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Bienestar y salud</a>
                         </li>
                         <li>
                             <a href="/categorias/tecnologia/"
-                               hx-get="/categorias/tecnologia/"
-                               hx-target="#main-content"
-                               hx-swap="innerHTML"
-                               hx-push-url="true"
-                               hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Tecnología</a>
+                                hx-get="/categorias/tecnologia/"
+                                hx-target="#main-content"
+                                hx-swap="innerHTML"
+                                hx-push-url="true"
+                                hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Tecnología</a>
                         </li>
                     </ul>
                 </li>
