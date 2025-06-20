@@ -1,31 +1,31 @@
 # hugo.toml
 
 # Configuración básica del sitio
-baseURL = "https://SuenaLaWeb.github.io/suena-la-web/"  # IMPORTANTE: Usar "/" para Netlify y desarrollo local.
-                                    # Netlify asignará la URL final cuando el sitio se despliegue.
-languageCode = "es-ve"              # Código de idioma del sitio
-title = "Suena La Web"           # Título principal del sitio web
+baseURL = "https://SuenaLaWeb.github.io/suena-la-web/" # CONFIRMADO Y LISTO!
+languageCode = "es-ve"                                # Código de idioma del sitio
+title = "Suena La Web"                             # Título principal del sitio web
+
+# ¡NUEVA UBICACIÓN PARA LAS OPCIONES DE URL!
+canonifyURLs = true       # Genera URLs absolutas completas usando baseURL
+relativeURLs = false      # Desactivado, ya que canonifyURLs es true
+uglyURLs = false          # Mantiene URLs limpias (sin .html al final)
+disablePathToLower = true # Previene que Hugo convierta rutas a minúsculas
 
 # Opciones de paginación (cuántos elementos por página, ej. en listas de noticias)
-paginate = 10                       # Muestra 10 elementos por página por defecto
+paginate = 10                                         # Muestra 10 elementos por página por defecto
 
 # Parámetros globales que puedes usar en tus plantillas
 [params]
   description = "Noticias y Música de Venezuela y el mundo. Suena La Web VE." # Descripción meta general
-  author = "Suena La Web VE"        # Autor del sitio
+  author = "Noticias y Música"                          # Autor del sitio
 
 # Taxonomías personalizadas (categorías, tags, etc.)
 [taxonomies]
-  categoria = "categorias"          # Define 'categorias' como una taxonomía para tus contenidos
+  categoria = "categorias"                            # Define 'categorias' como una taxonomía para tus contenidos
 
 # Configuración del proceso de construcción de Hugo
 [build]
-  # Configuración para el procesamiento de CSS (usando PostCSS)
-  # Esto es CRUCIAL para que Tailwind CSS funcione, ya que main.css es un archivo PostCSS.
   [build.processing.css.postcss]
-    # Especifica la ruta COMPLETA y ABSOLUTA al binario 'postcss' en tu entorno WSL.
-    # Esta ruta la obtuvimos con el comando 'ls -l node_modules/.bin/postcss'.
-    # ¡Asegúrate de que esta sea la ruta correcta para TU sistema!
     binary = "/mnt/e/suena_la_web/suena-la-web/node_modules/.bin/postcss"
 
 # Configuración de los tipos de salida para diferentes secciones del sitio
@@ -35,13 +35,3 @@ paginate = 10                       # Muestra 10 elementos por página por defec
   section = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
-
-# Configuración para URL relativas y URLs limpias
-# Esto es crucial para despliegues en subdirectorios como GitHub Pages
-relativeURLs = true      # Genera URLs relativas para todos los assets (imágenes, CSS, JS)
-uglyURLs = false         # Mantiene URLs limpias (sin .html al final)
-disablePathToLower = true # Previene que Hugo convierta rutas a minúsculas, útil en algunos hosts
-
-# Si tu baseURL incluye el subdirectorio (ej. /suena-la-web/), esto ayuda:
-# Si tus assets (imágenes) están en la carpeta 'static/', Hugo los servirá directamente.
-# Pero si están en 'assets/', PostCSS los procesará. Asegúrate de que las rutas sean consistentes.
