@@ -1,0 +1,26 @@
+# netlify.toml
+
+[build]
+  command = "npm install && hugo --minify"
+  publish = "public"
+
+[build.environment]
+  # ¡IMPORTANTE! Esta es la versión de Hugo que te funciona en WSL.
+  # Es vital que coincida para el despliegue.
+  HUGO_VERSION = "0.123.7_extended" 
+
+  # Asegúrate de que NODE_VERSION coincida con tu 'node -v' en WSL.
+  # Por ejemplo, si te dio v18.19.1, usa "18.19.1". Si te dio v20.x.x, usa "20".
+  NODE_VERSION = "18.19.1" # Aclara tu versión de Node.js aquí si es diferente a 20 o 22
+
+  # Asegura que Netlify encuentre los binarios de Node.js instalados localmente
+  PATH = "$PATH:./node_modules/.bin" 
+
+[context.production]
+  environment = { HUGO_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { HUGO_ENV = "development" }
+
+[context.branch-deploy]
+  environment = { HUGO_ENV = "development" }
