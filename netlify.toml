@@ -2,29 +2,17 @@
 
 # Configuración principal de la construcción del sitio
 [build]
-  # El comando que Netlify ejecutará para construir tu sitio.
-  # npm install: instala las dependencias de Node.js (incluyendo Tailwind y PostCSS).
-  # &&: Si el comando anterior es exitoso, ejecuta el siguiente.
-  # hugo --minify: Construye tu sitio Hugo, minificando el HTML, CSS y JS.
   command = "npm install && hugo --minify"
-
-  # El directorio donde Hugo genera los archivos estáticos listos para publicar.
   publish = "public"
 
 # Variables de entorno específicas para el proceso de construcción en Netlify.
 [build.environment]
-  # Especifica la versión de Hugo que Netlify debe usar.
-  # Es crucial que esta versión sea la misma que usas localmente y que sea 'extended'
-  # para que PostCSS funcione con Hugo Pipes.
-  HUGO_VERSION = "0.131.0" 
+  # ¡CORRECCIÓN CRUCIAL AQUÍ! DEBE COINCIDIR CON TU VERSIÓN DE HUGO EN WSL.
+  HUGO_VERSION = "0.123.7" # <--- ¡Cambiado de 0.131.0 a 0.123.7!
 
-  # Especifica la versión de Node.js que Netlify debe usar para npm.
-  # Asegúrate de que sea compatible con tus dependencias y tu Node.js local.
+  # Asegúrate de que NODE_VERSION coincida con tu 'node -v' en WSL (ej. "20" o "22")
   NODE_VERSION = "20" # Si tu 'node -v' es v22.x.x, usa "22" aquí.
 
-  # IMPORTANTE para PostCSS: Añade el directorio de binarios de Node.js al PATH.
-  # Esto asegura que Hugo pueda encontrar el ejecutable de 'postcss' una vez que npm lo instala.
-  # Netlify (basado en Linux) usará esta sintaxis para agregar al PATH.
   PATH = "$PATH:./node_modules/.bin" 
   
   # Si la línea anterior no funciona por alguna razón, puedes intentar esta alternativa:
@@ -34,3 +22,11 @@
 # Contextos de despliegue (opcional, pero buena práctica)
 # Permiten tener diferentes configuraciones para producción, previsualizaciones de despliegue, etc.
 # Esto asegura que Hugo sepa el entorno
+# [context.production]
+#   environment = { HUGO_ENV = "production" }
+#
+# [context.deploy-preview]
+#   environment = { HUGO_ENV = "development" }
+#
+# [context.branch-deploy]
+#   environment = { HUGO_ENV = "development" }
