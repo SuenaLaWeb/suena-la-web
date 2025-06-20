@@ -7,7 +7,7 @@
     "tailwind:init": "./node_modules/.bin/tailwindcss init -p",
     "tailwind:build": "./node_modules/.bin/tailwindcss -i ./assets/css/main.css -o ./static/css/styles.css --minify",
     "tailwind:watch": "./node_modules/.bin/tailwindcss -i ./assets/css/main.css -o ./static/css/styles.css --watch",
-    "deploy": "gh-pages -d public"  
+    "deploy": "HUGO_ENV=production hugo --environment production --minify && gh-pages -d public"
   },
   "keywords": [
     "Hugo",
