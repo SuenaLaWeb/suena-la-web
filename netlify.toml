@@ -7,8 +7,8 @@
 
 # Variables de entorno específicas para el proceso de construcción en Netlify.
 [build.environment]
-  # ¡CORRECCIÓN CRUCIAL AQUÍ! DEBE COINCIDIR CON TU VERSIÓN DE HUGO EN WSL.
-  HUGO_VERSION = "0.123.7" # <--- ¡Cambiado de 0.131.0 a 0.123.7!
+  
+  HUGO_VERSION = "0.111.1" 
 
   # Asegúrate de que NODE_VERSION coincida con tu 'node -v' en WSL (ej. "20" o "22")
   NODE_VERSION = "20" # Si tu 'node -v' es v22.x.x, usa "22" aquí.
