@@ -24,32 +24,38 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {{ range $pagesToShow.ByDate.Reverse }} {{/* Ordenar por fecha, los más nuevos primero */}}
                     <div class="bg-gray-800 rounded-lg shadow-lg p-6">
-                        {{/* Imagen de la noticia: YA USA | relURL, NO HAY CAMBIO AQUÍ */}}
+                        {{/* IMAGEN DE LA NOTICIA! CON absURL */}}
                         {{ if .Params.image }}
                             <div class="mb-4 rounded-lg overflow-hidden">
-                                <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="w-full h-48 object-cover">
+                                <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" class="w-full h-48 object-cover">
                             </div>
                         {{ end }}
                         <h2 class="text-2xl font-semibold text-orange-400 mb-2">
-                            {{/* PRIMER ENLACE: Título de la noticia - APLICAR | relURL */}}
-                            <a href="{{ .RelPermalink | relURL }}" class="hover:underline">{{ .Title }}</a> </h2>
+                            {{/* PRIMER ENLACE: Título de la noticia - USAR .Permalink */}}
+                            <a href="{{ .Permalink }}" class="hover:underline">{{ .Title }}</a>
+                        </h2>
                         <p class="text-gray-400 text-sm mb-4">
                             Publicado el {{ .Date.Format "January 2, 2006" }}
-                            {{ if .Params.categorias }}
-                                <span class="ml-2">Categorías:
-                                    {{- range $index, $category := .Params.categorias -}}
-                                        <a href="{{ "/categorias/" | relURL }}{{ . | urlize }}/" class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">{{ . }}</a>{{- if lt (add $index 1) (len .Params.categorias) -}}, {{- end -}}
-                                    {{- end -}}
-                                </span>
-                            {{ end }}
-                        </p>
-                        <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
-                        {{/* SEGUNDO ENLACE: Botón "Leer más" - APLICAR | relURL */}}
-                        <a href="{{ .RelPermalink | relURL }}" 
-                            class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a> </div>
-                {{ end }}
+                            {{/* PROTECCIÓN ROBUSTA PARA CATEGORÍAS */}}
+                            {{ if isset .Params "categorias" }}
+                                {{ with .Params.categorias }}
+                                    {{ if reflect.IsSlice . }}
+                                    | Categorías:
+                                        {{- range $index, $category := . -}}
+                                            <a href="{{ "/categorias/" | absURL }}{{ . | urlize }}/" class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">{{ . }}</a>{{- if lt (add $index 1) (len .) -}}, {{- end -}}
+                                        {{- end -}}
+                                    {{ end }}
+                                {{ end }}
+                            </p>
+                            <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
+                            {{/* SEGUNDO ENLACE: Botón "Leer más" - USAR .Permalink */}}
+                            <a href="{{ .Permalink }}" 
+                                class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más →</a>
+                        </div>
+                    {{ end }}
+                </div>
             </div>
-        {{ else }}
+            {{ template "_internal/pagination.html" . }} {{ else }}
             <p class="text-center text-gray-400 text-xl">No hay noticias en esta categoría de momento.</p>
         {{ end }}
     </div>

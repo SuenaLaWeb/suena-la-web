@@ -9,11 +9,12 @@
                 | Categoría:
                 {{ range $index, $categoria := . }}
                     {{ if $index }}, {{ end }}
-                    <a href="{{ "/categorias/" | relURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a> {{ end }}
+                    <a href="{{ "/categorias/" | absURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>
+                {{ end }}
                 {{ end }}
             </p>
             {{ with .Params.image }}
-                <img src="{{ . | relURL }}" alt="{{ if $.Params.alt_image }}{{ $.Params.alt_image }}{{ else }}{{ $.Title }}{{ end }}" class="w-full h-80 object-cover rounded-lg mb-6 shadow-md">
+                <img src="{{ . | absURL }}" alt="{{ if $.Params.alt_image }}{{ $.Params.alt_image }}{{ else }}{{ $.Title }}{{ end }}" class="w-full h-80 object-cover rounded-lg mb-6 shadow-md">
             {{ end }}
         </header>
 
@@ -22,9 +23,10 @@
         </div>
 
         <div class="mt-8 pt-6 border-t border-gray-700 text-center">
-            <a href="{{ "/" | relURL }}" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
+            <a href="{{ "/" | absURL }}" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">
                 ← Volver al Inicio
-            </a> </div>
+            </a>
+        </div>
     </article>
 </main>
 {{ end }}
