@@ -24,31 +24,29 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {{ range $pagesToShow.ByDate.Reverse }} {{/* Ordenar por fecha, los más nuevos primero */}}
                     <div class="bg-gray-800 rounded-lg shadow-lg p-6">
-                        {{/* ¡CAMBIO AQUÍ: LA IMAGEN DE LA NOTICIA AHORA USA | relURL! */}}
+                        {{/* Imagen de la noticia: YA USA | relURL, NO HAY CAMBIO AQUÍ */}}
                         {{ if .Params.image }}
                             <div class="mb-4 rounded-lg overflow-hidden">
                                 <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="w-full h-48 object-cover">
                             </div>
                         {{ end }}
                         <h2 class="text-2xl font-semibold text-orange-400 mb-2">
-                            {{/* PRIMER ENLACE: Título de la noticia - MODIFICADO */}}
-                            <a href="{{ .RelPermalink }}" class="hover:underline">{{ .Title }}</a>
-                        </h2>
+                            {{/* PRIMER ENLACE: Título de la noticia - APLICAR | relURL */}}
+                            <a href="{{ .RelPermalink | relURL }}" class="hover:underline">{{ .Title }}</a> </h2>
                         <p class="text-gray-400 text-sm mb-4">
-                            {{ .Date.Format "January 2, 2006" }}
+                            Publicado el {{ .Date.Format "January 2, 2006" }}
                             {{ if .Params.categorias }}
                                 <span class="ml-2">Categorías:
-                                    {{ range .Params.categorias }}
-                                        <span class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">{{ . }}</span>
-                                    {{ end }}
+                                    {{- range $index, $category := .Params.categorias -}}
+                                        <a href="{{ "/categorias/" | relURL }}{{ . | urlize }}/" class="inline-block bg-orange-600 text-white text-xs px-2 py-1 rounded-full mr-1">{{ . }}</a>{{- if lt (add $index 1) (len .Params.categorias) -}}, {{- end -}}
+                                    {{- end -}}
                                 </span>
                             {{ end }}
                         </p>
                         <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
-                        {{/* SEGUNDO ENLACE: Botón "Leer más" - MODIFICADO */}}
-                        <a href="{{ .RelPermalink }}" 
-                            class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a>
-                    </div>
+                        {{/* SEGUNDO ENLACE: Botón "Leer más" - APLICAR | relURL */}}
+                        <a href="{{ .RelPermalink | relURL }}" 
+                            class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más &rarr;</a> </div>
                 {{ end }}
             </div>
         {{ else }}
