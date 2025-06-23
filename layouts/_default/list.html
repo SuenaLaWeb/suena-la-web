@@ -46,16 +46,20 @@
                                         {{- end -}}
                                     {{ end }}
                                 {{ end }}
-                            </p>
-                            <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
-                            {{/* SEGUNDO ENLACE: Botón "Leer más" - USAR .Permalink */}}
-                            <a href="{{ .Permalink }}" 
-                                class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más →</a>
-                        </div>
-                    {{ end }}
-                </div>
+                            {{ end }}
+                        </p>
+                        <p class="text-gray-300">{{ .Summary | plainify | truncate 150 }}</p>
+                        {{/* SEGUNDO ENLACE: Botón "Leer más" - USAR .Permalink */}}
+                        <a href="{{ .Permalink }}" 
+                            class="inline-block mt-4 text-orange-400 hover:text-orange-300 font-semibold">Leer más →</a>
+                    </div>
+                {{ end }}
             </div>
-            {{ template "_internal/pagination.html" . }} {{ else }}
+
+            {{/* ¡NUEVA ESTRUCTURA AQUÍ! Paginación fuera del if/else final */}}
+            {{ template "_internal/pagination.html" . }} 
+
+        {{ else }}
             <p class="text-center text-gray-400 text-xl">No hay noticias en esta categoría de momento.</p>
         {{ end }}
     </div>

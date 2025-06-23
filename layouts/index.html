@@ -1,7 +1,7 @@
 {{ define "main" }}
     <div class="container mx-auto py-8 px-6 md:px-12">
         <h1 class="text-4xl font-extrabold mb-8 text-center gradient-text-orange">Últimas Noticias</h1>
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
                 {{ range first 2 (where site.RegularPages "Section" "noticias").ByDate.Reverse }}
@@ -58,13 +58,14 @@
                                         {{- end -}}
                                         {{ end }}
                                     {{ end }}
-                                </p>
-                                <p class="text-gray-300 text-sm">{{ .Summary | plainify | truncate 150 }}</p>
-                                <a href="{{ .Permalink }}" class="text-orange-400 hover:text-orange-500 text-sm mt-2 inline-block">Ver detalle →</a>
-                            </div>
+                                {{ end }}
+                            </p>
+                            <p class="text-gray-300 text-sm">{{ .Summary | plainify | truncate 150 }}</p>
+                            <a href="{{ .Permalink }}" class="text-orange-400 hover:text-orange-500 text-sm mt-2 inline-block">Ver detalle →</a>
                         </div>
-                    {{ end }}
-                </div>
+                    </div>
+                {{ end }}
             </div>
         </div>
-    {{ end }}
+    </div>
+{{ end }}
