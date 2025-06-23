@@ -1,21 +1,31 @@
 # netlify.toml
 
+# Configuración principal de la construcción del sitio
 [build]
+  # El comando que Netlify ejecutará para construir tu sitio.
+  # npm install: instala las dependencias de Node.js (incluyendo Tailwind y PostCSS).
+  # &&: Si el comando anterior es exitoso, ejecuta el siguiente.
+  # hugo --minify: Construye tu sitio Hugo, minificando el HTML, CSS y JS.
   command = "npm install && hugo --minify"
-  publish = "public"
 
+  # El directorio donde Hugo genera los archivos estáticos listos para publicar.
+  publish = "public" # Hugo genera en 'public/' por defecto
+
+# Variables de entorno específicas para el proceso de construcción en Netlify.
 [build.environment]
-  # ¡IMPORTANTE! Esta es la versión de Hugo que te funciona en WSL.
-  # Es vital que coincida para el despliegue.
-  HUGO_VERSION = "0.123.7_extended" 
+  # Especifica la versión de Hugo que Netlify debe usar.
+  # Es crucial que esta versión sea la misma que usas localmente y que sea 'extended'
+  HUGO_VERSION = "0.123.7_extended" # Ajusta a la versión exacta de tu 'hugo version' en WSL (ej., "0.131.0_extended")
+  
+  # Especifica la versión de Node.js que Netlify debe usar para npm.
+  # Debe ser compatible con tus dependencias y tu Node.js local.
+  NODE_VERSION = "18.19.1" # Ajusta a la versión exacta de tu 'node -v' en WSL (ej., "20", "22", etc.)
 
-  # Asegúrate de que NODE_VERSION coincida con tu 'node -v' en WSL.
-  # Por ejemplo, si te dio v18.19.1, usa "18.19.1". Si te dio v20.x.x, usa "20".
-  NODE_VERSION = "18.19.1" # Aclara tu versión de Node.js aquí si es diferente a 20 o 22
+  # IMPORTANTE para PostCSS: Añade el directorio de binarios de Node.js al PATH.
+  # Esto asegura que Hugo pueda encontrar el ejecutable de 'postcss' una vez que npm lo instala.
+  PATH = "$PATH:./node_modules/.bin"
 
-  # Asegura que Netlify encuentre los binarios de Node.js instalados localmente
-  PATH = "$PATH:./node_modules/.bin" 
-
+# Contextos de despliegue (opcional, pero buena práctica)
 [context.production]
   environment = { HUGO_ENV = "production" }
 
