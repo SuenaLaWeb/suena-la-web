@@ -5,37 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ .Title }} - Suena La Web VE</title>
 
-    {{/* Llama al partial para favicons, asumiendo que está en layouts/partials/favicons.html */}}
     {{ partial "favicons.html" . }}
 
     {{/* Enlaza el CSS principal de Tailwind/PostCSS */}}
-    {{ $styles := resources.Get "css/main.css" | postCSS (dict "config" "./postcss.config.js") | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+    {{/* ESTRATEGIA ROBUSTA PARA LOCAL VS. PRODUCCIÓN */}}
+    {{ $mainCss := resources.Get "css/main.css" | postCSS (dict "config" "./postcss.config.js") }}
+    {{ if hugo.IsProduction }}
+        {{ $mainCss = $mainCss | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ $mainCss.RelPermalink }}" integrity="{{ $mainCss.Data.Integrity }}">
+    {{ else }}
+        {{/* Si NO es producción (es decir, desarrollo local) */}}
+        <link rel="stylesheet" href="{{ "/css/main.css" | relURL }}">
+        {{ end }}
 
-    {{/* Enlace al favicon (asegúrate que favicon.ico está en la carpeta static/) */}}
-    {{/* Usa relURL para que funcione en subdirectorios de GitHub Pages */}}
+    {{/* Enlace al favicon */}}
     <link rel="icon" href="{{ "/favicon.ico" | relURL }}">
 
 </head>
 <body class="antialiased dark">
 
-    {{/* Llama al partial del encabezado */}}
     {{- partial "header.html" . -}}
-
-    {{/* ESTO ES EL CONTENIDO PRINCIPAL DE CADA PÁGINA (INDEX, LIST, SINGLE) */}}
     <div id="main-content">
         {{ block "main" . }}{{ end }}
     </div>
-
-    {{/* Llama al partial del pie de página */}}
     {{- partial "footer.html" . -}}
-
-    {{/* Llama al partial del reproductor (si lo quieres aquí en cada página) */}}
     {{- partial "player.html" . -}}
 
     {{/* Enlaza el JavaScript principal */}}
+    {{/* Aplica minify y fingerprint SOLO en producción (similar al CSS) */}}
     {{ $mainJs := resources.Get "js/main.js" | js.Build }}
-    <script src="{{ $mainJs.Permalink | relURL }}"></script>
+    {{ if hugo.IsProduction }}
+        {{ $mainJs = $mainJs | minify | fingerprint }}
+        <script src="{{ $mainJs.RelPermalink }}" integrity="{{ $mainJs.Data.Integrity }}"></script>
+    {{ else }}
+        {{/* Si NO es producción (desarrollo local) */}}
+        <script src="{{ "/js/main.js" | relURL }}"></script>
+    {{ end }}
 
 </body>
 </html>
