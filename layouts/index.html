@@ -8,14 +8,12 @@
                     <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
                         {{ if .Params.image }}
                             <div class="mb-4 rounded-lg overflow-hidden">
-                                <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" class="w-full h-48 object-cover">
-                            </div>
+                                <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" class="w-full h-48 object-cover"> </div>
                         {{ end }}
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
                                 <h2 class="text-3xl font-bold mb-3 gradient-text-yellow">
-                                    <a href="{{ .Permalink }}" class="hover:underline">{{ .Title }}</a>
-                                </h2>
+                                    <a href="{{ .Permalink }}" class="hover:underline">{{ .Title }}</a> </h2>
                                 <p class="text-gray-400 text-sm mb-4">
                                     Publicado el {{ .Date.Format "02 de January de 2006" }}
                                     {{/* Protección EXTRA para las categorías */}}
@@ -24,16 +22,14 @@
                                             {{ if reflect.IsSlice . }}
                                             | Categoría:
                                                 {{- range $index, $category := . -}}
-                                                    <a href="{{ "/categorias/" | absURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>{{- if lt (add $index 1) (len .) -}}, {{- end -}}
-                                                {{- end -}}
+                                                    <a href="{{ "/categorias/" | absURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>{{- if lt (add $index 1) (len .) -}}, {{- end -}} {{- end -}}
                                             {{ end }}
                                         {{ end }}
                                     {{ end }}
                                 </p>
                                 <p class="text-gray-300 leading-relaxed mb-4">{{ .Summary | plainify | truncate 150 }}</p>
                             </div>
-                            <a href="{{ .Permalink }}" class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">Leer más →</a>
-                        </div>
+                            <a href="{{ .Permalink }}" class="inline-block mt-4 self-start bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">Leer más →</a> </div>
                     </div>
                 {{ end }}
             </div>
@@ -42,30 +38,29 @@
                 {{ range after 2 (where site.RegularPages "Section" "noticias").ByDate.Reverse | first 5 }}
                     <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
                         {{ if .Params.image }}
-                            <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" class="news-card-image">
-                        {{ end }}
+                            <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}" class="news-card-image"> {{ end }}
                         <div class="p-4">
                             <h3 class="text-xl font-semibold mb-2 gradient-text-green">
-                                <a href="{{ .Permalink }}" class="hover:underline">{{ .Title }}</a>
-                            </h3>
+                                <a href="{{ .Permalink }}" class="hover:underline">{{ .Title }}</a> </h3>
                             <p class="text-gray-400 text-xs mb-2">{{ .Date.Format "02 de January de 2006" }} |
                                 {{/* Protección EXTRA para las categorías */}}
                                 {{ if isset .Params "categorias" }}
                                     {{ with .Params.categorias }}
                                         {{ if reflect.IsSlice . }}
                                         {{- range $index, $category := . -}}
-                                            <a href="{{ "/categorias/" | absURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>{{- if lt (add $index 1) (len .) -}}, {{- end -}}
-                                        {{- end -}}
+                                            <a href="{{ "/categorias/" | absURL }}{{ . | urlize }}/" class="hover:underline">{{ . }}</a>{{- if lt (add $index 1) (len .) -}}, {{- end -}} {{- end -}}
                                         {{ end }}
                                     {{ end }}
                                 {{ end }}
                             </p>
                             <p class="text-gray-300 text-sm">{{ .Summary | plainify | truncate 150 }}</p>
-                            <a href="{{ .Permalink }}" class="text-orange-400 hover:text-orange-500 text-sm mt-2 inline-block">Ver detalle →</a>
-                        </div>
+                            <a href="{{ .Permalink }}" class="text-orange-400 hover:text-orange-500 text-sm mt-2 inline-block">Ver detalle →</a> </div>
                     </div>
                 {{ end }}
             </div>
         </div>
+
+        {{ template "_internal/pagination.html" . }} 
+
     </div>
 {{ end }}

@@ -20,7 +20,31 @@
 
         <div class="prose dark:prose-invert">
             {{ .Content }}
-        </div>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4 text-white">Envíanos un Mensaje</h2>
+            <form action="https://formspree.io/f/mdkzpdzy" method="POST" class="space-y-4"> <div>
+                    <label for="nombre" class="block text-gray-300 text-sm font-bold mb-2">Nombre y Apellido:</label>
+                    <input type="text" id="nombre" name="nombre_apellido" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" required>
+                </div>
+                <div>
+                    <label for="asunto" class="block text-gray-300 text-sm font-bold mb-2">Asunto:</label>
+                    <input type="text" id="asunto" name="asunto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" required>
+                </div>
+                <div>
+                    <label for="mensaje" class="block text-gray-300 text-sm font-bold mb-2">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" required></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+            </div>
 
         <div class="mt-8 pt-6 border-t border-gray-700 text-center">
             <a href="{{ "/" | absURL }}" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 shadow-md">

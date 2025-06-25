@@ -1,70 +1,53 @@
 <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center mb-4 md:mb-0">
-            <a href="{{ "/" | absURL }}"
-                hx-get="{{ "/" | absURL }}"
-                hx-target="#main-content"
+            <a href="{{ "/" | absURL }}"  hx-get="{{ "/" | absURL }}"  hx-target="#main-content"
                 hx-swap="innerHTML"
                 hx-push-url="true"
                 hx-select="#main-content" class="flex items-center">
-                <img src="{{ "/image/logo_01.png" | absURL }}" alt="Logo Suena La Web" class="w-10 h-10 rounded-full object-cover">
-                <span class="ml-3 text-3xl font-bold gradient-text-yellow">SUENA LA WEB</span>
+                <img src="{{ "/image/logo_01.png" | absURL }}" alt="Logo Suena La Web" class="w-10 h-10 rounded-full object-cover"> <span class="ml-3 text-3xl font-bold gradient-text-yellow">SUENA LA WEB</span>
             </a>
         </div>
         <nav>
             <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg font-semibold">
                 <li>
-                    <a href="{{ "/" | absURL }}"
-                        hx-get="{{ "/" | absURL }}"
-                        hx-target="#main-content"
+                    <a href="{{ "/" | absURL }}"  hx-get="{{ "/" | absURL }}"  hx-target="#main-content"
                         hx-swap="innerHTML"
                         hx-push-url="true"
                         hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300">Inicio</a>
                 </li>
                 <li class="relative group">
-                    <a href="{{ "/noticias/" | absURL }}"
-                        hx-get="{{ "/noticias/" | absURL }}"
-                        hx-target="#main-content"
+                    <a href="{{ "/noticias/" | absURL }}"  hx-get="{{ "/noticias/" | absURL }}"  hx-target="#main-content"
                         hx-swap="innerHTML"
                         hx-push-url="true"
                         hx-select="#main-content" class="hover:text-orange-400 transition-colors duration-300 block">Noticias</a>
                     <ul class="absolute hidden group-hover:block bg-gray-800 text-white shadow-lg rounded-md top-full pt-2 w-48 z-10">
                         <li>
-                            <a href="{{ "/categorias/musica/" | absURL }}"
-                                hx-get="{{ "/categorias/musica/" | absURL }}"
-                                hx-target="#main-content"
+                            <a href="{{ "/categorias/musica/" | absURL }}"  hx-get="{{ "/categorias/musica/" | absURL }}"  hx-target="#main-content"
                                 hx-swap="innerHTML"
                                 hx-push-url="true"
                                 hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Música</a>
                         </li>
                         <li>
-                            <a href="{{ "/categorias/tv/" | absURL }}"
-                                hx-get="{{ "/categorias/tv/" | absURL }}"
-                                hx-target="#main-content"
+                            <a href="{{ "/categorias/tv/" | absURL }}"  hx-get="{{ "/categorias/tv/" | absURL }}"  hx-target="#main-content"
                                 hx-swap="innerHTML"
                                 hx-push-url="true"
                                 hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">TV</a>
                         </li>
                         <li>
-                            <a href="{{ "/categorias/cine/" | absURL }}"
-                                hx-get="{{ "/categorias/cine/" | absURL }}"
-                                hx-target="#main-content"
+                            <a href="{{ "/categorias/cine/" | absURL }}"  hx-get="{{ "/categorias/cine/" | absURL }}"  hx-target="#main-content"
                                 hx-swap="innerHTML"
                                 hx-push-url="true"
                                 hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Cine</a>
                         </li>
                         <li>
-                            <a href="{{ "/categorias/bienestar-salud/" | absURL }}"
-                                hx-get="{{ "/categorias/bienestar-salud/" | absURL }}"
-                                hx-target="#main-content"
+                            <a href="{{ "/categorias/bienestar-salud/" | absURL }}"  hx-get="{{ "/categorias/bienestar-salud/" | absURL }}"  hx-target="#main-content"
                                 hx-swap="innerHTML"
                                 hx-push-url="true"
                                 hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Bienestar y salud</a>
                         </li>
                         <li>
-                            <a href="{{ "/categorias/tecnologia/" | absURL }}"
-                                hx-get="{{ "/categorias/tecnologia/" | absURL }}"
-                                hx-target="#main-content"
+                            <a href="{{ "/categorias/tecnologia/" | absURL }}"  hx-get="{{ "/categorias/tecnologia/" | absURL }}"  hx-target="#main-content"
                                 hx-swap="innerHTML"
                                 hx-push-url="true"
                                 hx-select="#main-content" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Tecnología</a>
@@ -72,8 +55,7 @@
                     </ul>
                 </li>
                 <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Programación</a></li>
-                <li><a href="#" class="hover:text-orange-400 transition-colors duration-300">Contacto</a></li>
-            </ul>
+                <li><a href="{{ "/contact/" | absURL }}" class="hover:text-orange-400 transition-colors duration-300">Contacto</a></li> </ul>
         </nav>
     </div>
 </header>

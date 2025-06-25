@@ -4,45 +4,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ .Title }} - Suena La Web VE</title>
-    
-    {{/* Llama al partial para favicons, asumiendo que está en layouts/partials/favicons.html */}}
+
+    {{ if .Description }}
+    <meta name="description" content="{{ .Description }}">
+    {{ else if site.Params.description }}
+    <meta name="description" content="{{ site.Params.description }}">
+    {{ end }}
+
     {{ partial "favicons.html" . }}
 
     {{/* Enlaza el CSS principal de Tailwind/PostCSS */}}
-    {{/* Aplica minify y fingerprint SOLO en producción */}}
     {{ $mainCss := resources.Get "css/main.css" | postCSS (dict "config" "./postcss.config.js") }}
     {{ if hugo.IsProduction }}
         {{ $mainCss = $mainCss | minify | fingerprint }}
     {{ end }}
-    <link rel="stylesheet" href="{{ $mainCss.Permalink }}" integrity="{{ $mainCss.Data.Integrity }}">
+    <link rel="stylesheet" href="{{ $mainCss.RelPermalink }}">
 
-    {{/* Enlace al favicon (asegúrate que favicon.ico está en la carpeta static/) */}}
-    <link rel="icon" href="{{ "/favicon.ico" | absURL }}">
+    {{/* Enlace al favicon */}}
+    <link rel="icon" href="{{ "/favicon.ico" | relURL }}">
 
 </head>
 <body class="antialiased dark">
 
-    {{/* Llama al partial del encabezado */}}
     {{- partial "header.html" . -}}
-
-    {{/* ESTO ES EL CONTENIDO PRINCIPAL DE CADA PÁGINA (INDEX, LIST, SINGLE) */}}
     <div id="main-content">
         {{ block "main" . }}{{ end }}
     </div>
-
-    {{/* Llama al partial del pie de página */}}
     {{- partial "footer.html" . -}}
-
-    {{/* Llama al partial del reproductor (si lo quieres aquí en cada página) */}}
     {{- partial "player.html" . -}}
 
     {{/* Enlaza el JavaScript principal */}}
-    {{/* Aplica minify y fingerprint SOLO en producción */}}
     {{ $mainJs := resources.Get "js/main.js" | js.Build }}
     {{ if hugo.IsProduction }}
         {{ $mainJs = $mainJs | minify | fingerprint }}
     {{ end }}
-    <script src="{{ $mainJs.Permalink }}" integrity="{{ $mainJs.Data.Integrity }}"></script>
+    <script src="{{ $mainJs.RelPermalink }}"></script>
 
 </body>
 </html>

@@ -1,15 +1,17 @@
 # hugo.toml
 
 # Configuración básica del sitio (para desarrollo local)
-# Importante: Solo el dominio raíz de GitHub Pages. Esto es crucial para absURL.
-baseURL = "https://SuenaLaWeb.github.io/"
+# ¡SIMPLIFICADO! Esto es la URL que Hugo Server mostrará.
+baseURL = "/" # <--- ¡CAMBIO AQUÍ! La baseURL principal es solo la raíz.
 languageCode = "es-ve"
-title = "Suena La Web"
+title = "Suena La Web VE"
 
 # Configuración de URLs (¡ESTO ES CLAVE para GitHub Pages en subdirectorio!)
-relativeURLs = false # Genera URLs absolutas
-canonifyURLs = true  # ¡Hace que Hugo construya URLs absolutas completas desde baseURL!
-uglyURLs = false     # URLs limpias (sin .html)
+# relativeURLs = true: para que | relURL funcione correctamente.
+# canonifyURLs = false: para que Hugo no fuerce URLs absolutas completas sin el pathPrefix.
+relativeURLs = true
+canonifyURLs = false
+uglyURLs = false
 disablePathToLower = true
 
 # Opciones de paginación
@@ -18,7 +20,10 @@ paginate = 10
 # Parámetros globales
 [params]
   description = "Noticias y Música de Venezuela y el mundo. Suena La Web VE."
-  author = "Música y noticias"
+  author = "Suena La Web VE"
+  # Parámetro específico para GitHub Pages. ¡MUY IMPORTANTE!
+  # Debe ser el nombre de tu repositorio, con '/' al principio.
+  pathPrefix = "/suena-la-web" # <--- ¡AQUÍ VA EL NOMBRE DE TU REPOSITORIO CON '/' AL PRINCIPIO!
 
 # Taxonomías
 [taxonomies]
@@ -41,5 +46,6 @@ paginate = 10
 # Define la baseURL específica para el entorno de producción (GitHub Pages).
 # Hugo usará esta sección cuando se compile con `--environment production`.
 [production]
-  # ¡IMPORTANTE! Aquí es donde la baseURL INCLUYE EL SUBDIRECTORIO.
-  baseURL = "https://SuenaLaWeb.github.io/suena-la-web/"
+  # ¡IMPORTANTE! Aquí la baseURL es la URL COMPLETA DEL DOMINIO RAÍZ de GitHub Pages.
+  # PERO el pathPrefix de params se USARÁ para los assets.
+  baseURL = "https://SuenaLaWeb.github.io/"
