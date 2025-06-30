@@ -1028,6 +1028,7 @@ p {
   font-size: 1.125rem;
   line-height: 1.75rem;
   line-height: 1.625; /* text-lg: tamaño de fuente grande; leading-relaxed: interlineado cómodo; mb-8: margen inferior de 2rem (32px) */
+        text-align: justify; /* Añadido para justificar el texto */
 }
 /* Estilos para Enlaces (Hyperlinks) - ¡SUBRAYADO ELIMINADO AQUÍ! */
 a {
@@ -1038,15 +1039,14 @@ a:hover {
   --tw-text-opacity: 1;
   color: rgb(253 186 116 / var(--tw-text-opacity, 1));
 }
-a { /* ¡Eliminado "underline" de esta línea! */
+a { /* Eliminado "underline" */
     }
 /* Estilos para Listas No Ordenadas (UL) */
 ul {
   margin-bottom: 1rem;
   list-style-position: inside;
   list-style-type: disc;
-  padding-left: 1rem; /* list-disc: viñetas de disco; list-inside: viñetas dentro del contenido; mb-4: margen inferior; pl-4: padding izquierdo */
-        /* Aseguramos que los ULs no tengan estilos por defecto del navegador que interfieran con Tailwind */
+  padding-left: 1rem;
         list-style: none; /* Elimina viñetas si @apply list-disc no funciona por alguna razón */
         margin: 0;        /* Asegura que no haya márgenes externos */
         padding: 0;       /* Asegura que no haya padding externo */
@@ -1056,7 +1056,7 @@ ol {
   margin-bottom: 1rem;
   list-style-position: inside;
   list-style-type: decimal;
-  padding-left: 1rem; /* list-decimal: numeración; list-inside: números dentro del contenido; mb-4: margen inferior; pl-4: padding izquierdo */
+  padding-left: 1rem;
         list-style: none; /* Elimina numeración si @apply list-decimal no funciona por alguna razón */
         margin: 0;        /* Asegura que no haya márgenes externos */
         padding: 0;       /* Asegura que no haya padding externo */
@@ -1072,71 +1072,57 @@ blockquote {
   padding-left: 1rem;
   font-style: italic;
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity, 1)); /* border-l-4: borde izquierdo grueso; border-orange-500: color naranja; pl-4: padding izquierdo; py-2: padding vertical; italic: texto en cursiva; text-gray-400: color de texto gris; mb-4: margen inferior */
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
 }
 /* Estilo para el texto con degradado amarillo (como el del título principal) */
 .gradient-text-yellow {
-        background-image: linear-gradient(to right, #facc15, #f59e0b); /* Degradado de amarillo a naranja */
-        -webkit-background-clip: text; /* Recorta el fondo al texto */
-        -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente para mostrar el fondo recortado */
-        /* Color de respaldo por si el navegador no soporta -webkit-text-fill-color */
-        color: #facc15;
+        background-image: linear-gradient(to right, #facc15, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #facc15; /* Color de respaldo */
     }
-/*
-    * Estilos Específicos para el Menú de Navegación (si nav ul no se comporta como flex)
-    * Estas reglas son para forzar el comportamiento lineal del menú si las clases en el HTML
-    * no son suficientes, lo cual podría pasar si hay estilos base que interfieren.
-    */
+/* Estilos Específicos para el Menú de Navegación */
 nav ul {
-        display: flex;       /* Convierte el UL en un contenedor flex */
-        flex-wrap: wrap;     /* Permite que los elementos salten de línea si no caben */
-        justify-content: center; /* Centra los elementos horizontalmente */
-        /* gap: 1rem; */ /* Podrías usar gap en lugar de space-x si lo prefieres para espaciado */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 nav li {
-        list-style: none; /* Asegura que no haya viñetas en los items del menú */
-        margin: 0;        /* Elimina márgenes extra */
-        padding: 0;       /* Elimina paddings extra */
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 /* ESTILOS PARA EL REPRODUCTOR COMO FRANJA INFERIOR CENTRAL */
 .player-fixed-container {
-        position: fixed;   /* Fija el elemento en relación a la ventana del navegador */
-        bottom: 0;         /* Pega el reproductor al borde inferior de la pantalla */
-        left: 0;           /* Pega el reproductor al borde izquierdo */
-        right: 0;          /* Pega el reproductor al borde derecho (ocupando todo el ancho) */
-        width: 100%;       /* Asegura que ocupe el 100% del ancho disponible */
-        z-index: 999;      /* Asegura que esté por encima de la mayoría de los demás elementos */
-
-        /* Aplica aquí las clases de Tailwind para el diseño visual del contenedor del reproductor */
-
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 999;
         --tw-bg-opacity: 1;
-
         background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
-
         --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-
         --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); /* quitado p-4 de aquí para controlarlo con padding */
-
-        /* Padding para el contenido dentro de la franja (ajustable) */
-        padding: 1rem 1.5rem; /* Padding vertical de 1rem, horizontal de 1.5rem */
-        display: flex; /* Para centrar el contenido del reproductor */
-        align-items: center; /* Centrar verticalmente el contenido */
-        justify-content: center; /* Centrar horizontalmente el contenido del reproductor */
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        padding: 0.5rem 1.5rem; /* Ajustado para el reproductor de Muses.org */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(26px + 1rem); /* 26px del player + 1rem de padding total */
     }
-/* Ajustes específicos para el iframe dentro de la franja del reproductor */
-.player-fixed-container iframe {
-        display: block; /* Asegura que el iframe se comporte correctamente */
-        margin: 0 auto; /* Centra el iframe dentro de la franja */
-        height: 200px; /* Altura más adecuada para una franja. AJUSTA SI ES NECESARIO */
-        width: 100%; /* Asegura que ocupe el ancho disponible dentro de la franja */
-        max-width: 600px; /* Opcional: Limita el ancho máximo del iframe para pantallas muy grandes */
+/* Ajustes específicos para el nuevo reproductor de Muses.org */
+.player-fixed-container #muses-player-embed {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+        height: 26px; /* Altura explícita para el contenedor del player */
     }
-/* Ajustes específicos para el h2 (título) dentro del reproductor */
-.player-fixed-container h2 {
-        margin-bottom: 0; /* Elimina el margen inferior predeterminado para el h2 dentro del reproductor */
-        margin-right: 1rem; /* Añade un espacio a la derecha del título del reproductor */
+/* Ajuste para que el footer no sea cubierto por el reproductor fijo */
+body {
+        /* padding-bottom debe ser la altura del reproductor + su padding */
+        padding-bottom: calc(26px + 1rem + 2rem); /* 26px (player) + 1rem (padding player) + un poco más si el footer lo necesita */
     }  /* Incluye tus estilos definidos con @layer components */
 .visible {
   visibility: visible;
@@ -1474,11 +1460,6 @@ nav li {
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.shadow-inner {
-  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -1507,18 +1488,13 @@ nav li {
 * Sección de Componentes Personalizados (@layer components)
 * Aquí defines estilos para tus propios "componentes" o para anular estilos base
 * de Tailwind de forma específica para elementos HTML como h1, p, ul, etc.
-*/
+*/ /* ¡ESTA LLAVE DE CIERRE FALTABA O SE BORRÓ! */
 
 /*
 * Cualquier estilo CSS que hayas tenido en el <style> de baseof.html que no fuera de Tailwind
 * y que necesites mantener, pégalo aquí, FUERA de @layer components.
-* Si ya los moviste todos y eliminaste el <style> de baseof.html, puedes borrar esta sección de comentario.
 */
-/*
-body {
-    font-family: 'Arial', sans-serif;
-}
-*/
+
 .dark\:prose-invert:is(.dark *) {
   --tw-prose-body: var(--tw-prose-invert-body);
   --tw-prose-headings: var(--tw-prose-invert-headings);
@@ -1540,81 +1516,98 @@ body {
   --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
   color: #d1d5db;
 }
+
 .dark\:prose-invert:is(.dark *) :where(h1):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #fff;
 }
+
 .dark\:prose-invert:is(.dark *) :where(h2):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #f3f4f6;
 }
+
 .dark\:prose-invert:is(.dark *) :where(h3):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #f3f4f6;
 }
+
 .dark\:prose-invert:is(.dark *) :where(h4):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #f3f4f6;
 }
+
 .dark\:prose-invert:is(.dark *) :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #60a5fa;
 }
+
 .dark\:prose-invert:is(.dark *) :where(strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #fff;
 }
+
 .dark\:prose-invert:is(.dark *) :where(em):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #9ca3af;
 }
+
 .dark\:prose-invert:is(.dark *) :where(ol > li):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
   color: #9ca3af;
 }
+
 .dark\:prose-invert:is(.dark *) :where(ul > li):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
   background-color: #9ca3af;
 }
+
 .dark\:prose-invert:is(.dark *) :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   color: #f3f4f6;
 }
+
 .dark\:prose-invert:is(.dark *) :where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   background-color: #374151;
   color: #d1d5db;
 }
+
 .hover\:bg-orange-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(234 88 12 / var(--tw-bg-opacity, 1));
 }
+
 .hover\:bg-orange-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(194 65 12 / var(--tw-bg-opacity, 1));
 }
+
 .hover\:text-orange-300:hover {
   --tw-text-opacity: 1;
   color: rgb(253 186 116 / var(--tw-text-opacity, 1));
 }
+
 .hover\:text-orange-400:hover {
   --tw-text-opacity: 1;
   color: rgb(251 146 60 / var(--tw-text-opacity, 1));
 }
+
 .hover\:text-orange-500:hover {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity, 1));
 }
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
+
 .hover\:opacity-75:hover {
   opacity: 0.75;
 }
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
 .group:hover .group-hover\:block {
   display: block;
 }
+
 @media (min-width: 768px) {
 
   .md\:mb-0 {
     margin-bottom: 0px;
-  }
-
-  .md\:w-1\/2 {
-    width: 50%;
   }
 
   .md\:grid-cols-2 {
@@ -1636,6 +1629,7 @@ body {
     padding-right: 3rem;
   }
 }
+
 @media (min-width: 1024px) {
 
   .lg\:col-span-1 {
@@ -1644,10 +1638,6 @@ body {
 
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
-  }
-
-  .lg\:w-1\/3 {
-    width: 33.333333%;
   }
 
   .lg\:grid-cols-3 {
